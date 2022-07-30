@@ -1,0 +1,3017 @@
+/* ------------------------------------------ *\
+
+Автор: Стрижаков Станислав;
+Дизайн: Стрижаков Станислав;
+Использованы фото: автор Стрижаков Станислав;
+Использованы видео: youtube канал Стрижакова Станислава, вставка по открытой лицензии youtube через iframe;
+Верстка и адаптация: Стрижаков Станислав;
+
+В теме применены:
+- jquery 3.5.1
+- fancybox 3.5.7
+
+*** ---------------- ***
+
+Версия 3.0
+
+
+*** ---------------- ***
+
+CSS Document >>> TABLE OF CONTENTS:
+# 1. Основные стили
+# 2. Структурные элементы шапки
+	2.1 Прямоугольные блоки шапки
+	2.2 Логотип-печать
+	2.3 Иконки соц. сетей
+	2.4 Почта
+	2.5 Контактный телефон
+	2.6 Основное меню сайта
+	2.7 Блок смены языка сайта
+	2.8 Блок в шапке, смещающий тело сайта вниз
+	2.9 Стрелка перехода вверх страницы
+# 3. Структурные элементы тела
+	3.1 Оформление вида тела сайта
+		3.1.1 Цвета темы
+		3.1.2 Группа основных блоков /прямоугольники/
+		3.1.3 Кнопки
+	3.2 Блоки
+		3.2.1 Блок-логотип
+		3.2.2 Блок текстовый
+		3.2.3 Блок первый /пустой/
+		3.2.4 Иконки страницы "контакты"
+		3.2.5 Блок с видео
+		3.2.6 Блок текстовый большой белый
+		3.2.7 Блок обратной связи
+		3.2.8 Блок соотношения сторон
+	3.3 Боковое меню
+	3.4 Якоря
+# 4. Страница 404	
+# 5. Структурные элементы подвала
+# 6. Выравнивания /alignments/ !!! пока не применены
+	6.1 Выравнивание медиа
+# 7. Очистка стилей /clearings/ !!! пока не применены
+# 8. Адаптация /под разные размеры экрана, минимальная ширина экрана 280px, максимальная 1920px/
+    - 1280px
+	- 1150px
+	- 980px
+	- 800px
+	- 660px
+	- 430px
+	- 360px
+	
+\* ------------------------------------------ */
+
+
+/* 1. ОСНОВНЫЕ СТИЛИ, которые будут унаследованы дочерней таблицей стилей */
+*,*:before,*:after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+html,body {
+    background: #e4e4e4;
+    font-family: 'Roboto', 'Times New Roman', Times, sans-serif;
+	height: 100%;
+}
+
+p {font-size: 16px; margin: 0;}
+h1 {font-size: 500%; margin: 0;}
+h2 {font-size: 400%; margin: 0;}
+h3 {font-size: 300%; margin: 0;}
+h4 {font-size: 250%; margin: 0;}
+h5 {font-size: 200%; margin: 0;}
+h6 {font-size: 150%; margin: 0;}
+
+a {
+	text-decoration: none; /*убираем подчеркивание текста ссылок*/
+	color: #0172b2;
+} 
+
+ul {
+    list-style: none; /*убираем маркеры списка*/
+    margin: 0; /*убираем верхнее и нижнее поле, равное 1em*/
+    padding-left: 0; /*убираем левый отступ, равный 40px*/
+}
+
+ol, li {margin: 0;}
+
+article {
+	position: relative;
+}
+
+.nowrap { /* класс для запрета переноса строк */
+  white-space: nowrap;
+}
+
+/* 2. СТРУКТУРНЫЕ ЭЛЕМЕНТЫ ШАПКИ
+    /z-index начинается в шапке со 100, в теле до 100/ */
+
+.top-block {
+/* 2.1 Прямоугольные блоки шапки */
+
+	height: 3em;
+	border-bottom: 0.05em solid white;
+    background: url(../images/allfonsru_36711.jpg) center center;
+    background-size: 1300px auto;
+	position: fixed;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+.top-block-elements {
+	height: 3em;
+	width: 100%;
+	max-width: 2048px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	position: fixed;
+	background: url(../images/allfonsru_36711.jpg) center center;
+    background-size: 1300px auto;
+	border-bottom: 0.05em solid white;
+	z-index: 103;
+}
+
+#top-block-1 {
+    z-index: 101;
+}
+
+#top-block-404 {
+	top: 3em;
+	z-index: 101;
+}
+
+#top-block-2 {
+    top: 3em;
+	z-index: 101;
+}
+
+#top-block-scrl {
+	display: none;
+}
+
+#top-block-scrl.fixed {top: 3em;}
+
+/* 2.2 Логотип-печать */
+
+.logo {
+    width: 7em;
+    height: 7em;
+    position: absolute;
+    left: 1em;
+    top: 0.3em;
+    background: url(../images/logo.png) center center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 0.5em rgba(0,0,0,0.5);
+    transform: rotate(-30deg);
+    z-index: 102;
+}
+
+/* 2.3 Иконки соц. сетей */
+
+.shapka-social {
+    position: absolute;
+    top: 0.5em;
+    left: 9em;
+    height: 2em;
+    z-index: 102;
+}
+
+.shapka-social a {
+    height: 2em;
+    width: 2em;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 1.25em 1em 0;
+}
+
+.shapka-social a:nth-child(1) {
+    background: url(../images/facebook-logo.png) no-repeat center center;
+    background-size: cover;
+}
+
+.shapka-social a:nth-child(2) {
+    background: url(../images/youtube.png) no-repeat center center;
+    background-size: cover;
+}
+
+.shapka-social a:nth-child(3) {
+    background: url(../images/instagram.png) no-repeat center center;
+    background-size: cover;
+}
+
+.shapka-social a:nth-child(4) {
+    background: url(../images/locate-places.png) no-repeat center center;
+    background-size: cover;
+}
+
+.shapka-social a:nth-child(5) {
+    display: none;
+    background: url(../images/mail.png) no-repeat center center;
+    background-size: cover;
+}
+
+.shapka-social a:nth-child(6) {
+    display: none;
+    background: url(../images/call-answer.png) no-repeat center center;
+    background-size: cover;
+}
+
+/* 2.4 Почта */
+
+.s-mail {
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
+    top: 0.5em;
+    height: 2em;
+    z-index: 103;
+    padding-left: 3em;
+    background: url(../images/mail.png) no-repeat center left;
+    background-size: 2em;
+}
+
+.s-mail a{
+    top: 0;
+    left: 0;
+    height: 2rem;
+    line-height: 2rem;
+    z-index: 103;
+    color: white;
+}
+
+/* 2.5 Контактный телефон */
+
+.contact-phone {
+    color: white;
+    width: 23em;
+    height: 3em;
+    position: absolute;
+    right: 5em;
+    top: 0;
+    text-align: right;
+    line-height: 1.5em;
+    background: url(../images/call-answer.png) no-repeat center left;
+    background-size: 2em;
+    z-index: 102;
+}
+
+/* 2.6 Основное меню сайта */
+
+#menu {
+    top: 0;
+    display: block;
+    right: 0;
+    position: absolute;
+    list-style: none;
+    padding: 4em 0;
+    height: 1em;
+    z-index: 102;
+}
+
+#menu li {
+    display: block;
+    float: left;
+}
+
+#menu li:after {
+    content: "|";
+    color: white;
+    display: inline-block;
+    vertical-align:top;
+}
+
+#menu li:last-child:after {content: none;}
+
+#menu a {
+    font-family: 'Roboto', serif;
+    position: relative;
+    padding-bottom: 0;
+    margin: 0 1em; /* размер ячеек меню */
+    text-transform: uppercase; /* все главные буквы */
+    display: inline-block;
+    transition: color .2s;
+}
+
+#menu a, #menu a:visited {color: silver;}
+
+#menu a.current, #menu a:hover{color: white;}
+
+#menu a:before, #menu a:after {
+    content: "";
+    position: absolute;
+    height: 0.1em;
+    top: auto;
+    right: 50%;
+    bottom: -0.3em;
+    left: 50%;
+    background: white;
+    transition: .8s;
+}
+
+#menu a:hover:before, #menu .current:before {left: 0;}
+
+#menu a:hover:after, #menu .current:after {right: 0;}
+
+
+#menubtn { /* кнопка меню, появляющаяся при уменьшении сайта */
+    background-size: cover;
+	border-radius: 0.15em;
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 2em;
+    width: 2em;
+	padding: 0;
+    margin: 0.5em 1em 0.5em 1em;
+    z-index: 103;
+	overflow: hidden;
+}
+
+#menu.active { /* класс, который будет добавлен в верхнему меню при нажатии на кнопку и покажет скрытое меню*/
+	position: absolute;
+	height: 100vh;
+	padding-top: 3em;
+	box-sizing: border-box;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 100;
+} 
+
+.menubtn-ico {
+	display: block;
+	position: relative;
+	width: 2em;
+	height: 2em;
+}
+
+.menubtn-ico span {
+	position: absolute;
+	background-color: white;
+	left: 0;
+	width: 100%;
+	height: 0.3em;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+
+.menubtn-ico:before,
+.menubtn-ico:after {
+	content: '';
+	background-color: white;
+	position: absolute;
+	width: 100%;
+	height: 0.3em;
+	left: 0;
+	transition: all 0.3s ease 0s;
+}
+
+.menubtn-ico:before {top: 0;}
+
+.menubtn-ico:after {bottom: 0;}
+
+.menubtn-ico.active span {transform: scale(0);}
+
+.menubtn-ico.active:before {
+	top: 50%;
+	transform: translate(0,-50%) rotate(45deg);
+}
+
+.menubtn-ico.active:after{
+	bottom: 50%;
+	transform: translate(0,50%) rotate(-45deg);
+}
+
+/* 2.7 Блок смены языка сайта */
+
+.lang-menu {
+	display: block;
+	right: 0;
+	top: 0;
+	width: 5em;
+	position: absolute;
+	z-index: 103;
+}
+
+.lang-menu a {
+    border-bottom: 0.05em solid white;
+    color: white;
+    cursor: pointer;
+    display: block;
+    height: 3em;
+    line-height: 3em;
+    padding-right: 0.75em;
+    text-align: right;
+    width: 5em;
+	user-select: none; /* запрет браузеру выделять текст */
+}
+
+#lang-menu-main {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transition: 0.5s ease-in-out;
+    background: url(../images/allfonsru_36711.jpg) center center;
+    background-size: 1300px auto;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+}
+
+#lang-menu-eng{
+    background: url('../images/lng_eng.png') no-repeat left 0.75em center;
+    background-size: 1.5em auto;
+}
+
+#lang-menu-ua{
+    background: url('../images/lng_ua.png') no-repeat left 0.75em center;
+    background-size: 1.5em auto;
+}
+
+#lang-menu-ru{
+    background: url('../images/lng_ru.png') no-repeat left 0.75em center;
+    background-size: 1.5em auto;
+}
+
+.lang-menu-main ul li:hover #lang-menu-main {transform: scaleY(1);}
+
+#lang-menu-main li:hover {
+	background-color: black;
+	transition: 1s;
+}
+
+.lang-menu li:hover {
+	background-color: black;
+	transition: 1s;
+}
+
+/* 2.8 Блок в шапке, смещающий тело сайта вниз */
+
+.underheader {
+    position: relative;
+    height: 3em;
+}
+
+#underheader-static {height: 3em;}
+
+.underheader-fixed {
+    position: fixed;
+    height: 6em;
+	top: 0;
+	width: 100%;
+	display: hidden;
+}
+
+/* 2.9 Стрелка перехода вверх страницы */
+
+.arrow-up {
+	display: none;
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	background: url(../images/arrow-up-128.png) center center no-repeat #054a71;
+    background-size: 60%;
+	width: 4em;
+    height: 4em;
+	border: 0.3em solid white;
+	border-radius: 50%;
+	opacity: 0.3;
+	z-index: 200;
+	transition: 1s;
+	font-size: 100%;
+}
+
+.arrow-up:hover {
+	opacity: 1;
+}
+
+.arrow-up.up {display: block;}
+
+/* 3. СТРУКТУРНЫЕ ЭЛЕМЕНТЫ ТЕЛА */
+
+/* 3.1 Оформление вида тела сайта */
+
+/* 3.1.1 Цвета темы */
+
+#color-0 {
+    color: white;
+    background-color: black;
+}
+
+#color-1 {background-color: #0cbcf5;}
+
+#color-2 {background-color: #054a71;}
+
+#color-3 {background-color: #0172b2;}
+
+#color-4 {background-color: #86dbf6;}
+
+#color-5 {background-color: silver;}
+
+#color-6 {background-color: #e4e4e4;}
+
+#color-7 {background-color: white; margin-right: 0;}
+
+/* 3.1.1 Группа основных блоков */
+
+.subwrapper {
+    display: flex;
+    width: auto;
+	max-width: 2048px;
+    margin: 0 auto;
+	outline: 0.1em dashed #054a71;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #e4e4e4;
+    padding: 2em;
+}
+
+.sidebar-review {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 80%;
+	bottom: 0;
+}
+
+.sidebar-right-review {
+	position: absolute;
+	top: 0;
+	left: 80%;
+	right: 0;
+	bottom: 0;
+	padding: 1em;
+}
+
+#sidebar-sticky {
+	padding: 0;
+	border-right: 0.1em dashed #054a71;
+} 
+
+.main-section {
+    width: 80%;
+    background-color: #e4e4e4;
+    padding: 0;
+	margin: 0;
+}
+
+.main-50-cover {
+	display: flex;
+}
+
+.main-50 {
+	width: 50%;
+	padding: 2em;
+}
+
+#main-section-full {width: 100%;}
+
+/* 3.1.2 Cтандартная начинка блоков темы  /прямоугольники/
+	- стандартные прямоугольники w-100% h-100% */
+
+.rectangle-gray,
+.rectangle-blue,
+.rectangle-img {
+    position: absolute;
+    height: 100%; /* высота задана для сохранения размера блока */
+    width: 100%;
+	top: 0;
+	right: 0;
+    left: 0;
+    background-color: silver;
+}
+
+.rectangle-blue {
+    background-color: #0cbcf5;
+}
+
+.rectangle-img { 
+    width: 40%;
+    left: 10%;
+    background-color: white;
+}
+
+#rectangle-img-index {
+	background: url(../images/doctor-main.png) bottom center no-repeat;
+    background-size: contain;
+}
+
+#rectangle-img-back-form {
+	background: url(../images/IMG_1830.png) bottom right no-repeat;
+    background-size: contain;
+	height: 100%;
+	bottom: 0;
+	top: auto;
+	left: 0;
+	width: 50%;
+}
+
+.rectangle-txt {
+	position: relative;
+    border: 0.1em outset black;
+	overflow: hidden;
+	padding: 2em;
+	text-align: center;
+	box-sizing: border-box; /* для отмены увеличения блока за счет границ и padding */
+}
+
+.rectangle-txt p {text-align: justify;}
+
+#rectangle-txt-back-form {
+	position: relative;
+	margin-left: 50%;
+	margin-right: 5%;
+}
+
+.rectangle-iframe {
+	position: absolute;
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+	width: 35%;
+	height: 80%;
+	top: 10%;
+	right: 10%;
+	box-sizing: border-box;
+	background-color: white;
+}
+
+/* 3.1.3 Кнопки /buttons/ */
+
+.button-1,
+.button-2{
+    color: white;
+    cursor: pointer;
+    line-height: 2em;
+    border-radius: 0.5em;
+    border: 0.1em solid white;
+    outline: none;
+    font-weight: bold;
+    font-size: 125%;
+    padding: 0 2em;
+    text-transform: uppercase;
+}
+
+.button-1 {background-color: #054a71;}
+.button-2 {background-color: #0172b2;}
+
+.button-1:hover,
+.button-2:hover {
+    background-color: #0cbcf5;
+}
+
+.button-1:active,
+.button-2:active {
+    background-color: #054a71;
+}
+
+.buttons { /*обертка для кнопок */
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+	padding: 0 2em 2em 2em;
+}
+
+#btn-header-1,
+#btn-header-2 {
+    position: absolute;
+    font-size: 150%;
+    z-index: 3;
+	bottom: 1.5em;
+}
+
+#btn-header-1 {left: 15%;}
+#btn-header-2 {right: 15%}
+
+#btn-post,
+#btn-text,
+#btn-text-l,
+#btn-text-r {
+	font-size: 100%;
+    position: relative;
+}
+
+#btn-post,
+#btn-text-r {float: right;}
+
+#btn-text-l {float: left;}
+
+.btn-404 {
+	position: relative;
+	text-align: center;
+}
+
+/* 3.2 БЛОКИ */
+
+/* 3.2.1 Блок-логотип */
+
+.headblock {
+	position: relative;
+	max-width: 2048px;
+    margin: 0 auto;
+}
+    
+
+.head-logo {
+    position: relative;
+    background: #0172b2;
+    color: white;
+}
+
+#head-logo-35 {height: 35em;}
+#head-logo-30 {height: 30em;}
+#head-logo-25 {height: 25em;}
+#head-logo-20 {height: 20em;}
+
+.head-logo:after { /* затемнение блока */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.4);
+    z-index: 1;
+}
+
+.head-logo-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#head-logo-img-index {
+    background: url('../images/main-bckgrnd.jpg') no-repeat 50% 5%;
+	background-size: cover;
+}
+
+#head-logo-img-contacts {
+	background: url('../images/IMG_2570.png') no-repeat 0 0 #054a71;
+	background-size: contain;
+	z-index: 2;
+}
+
+#head-logo-img-about {
+	background: url('../images/about-logo.png') no-repeat center 0 #054a71;
+	background-size: cover;
+}
+
+#head-logo-img-diseases {
+	background: url('../images/diseases-logo.jpg') no-repeat center 0 #054a71;
+	background-size: cover;
+}
+
+#head-logo-img-operations {
+	background: url('../images/operations.png') no-repeat center 0 #054a71;
+	background-size: cover;
+}
+
+#head-logo-img-review {
+	background: url('../images/review-logo.jpg') no-repeat center 0 #054a71;
+	background-size: cover;
+}
+
+
+.headblock-text {
+    position: absolute;
+    color: white;
+    z-index: 3;
+}
+
+#headblock-text-index {
+	margin-left: 10%;
+    top: 8em;
+}
+
+#headblock-text-about {
+    top: 50%;
+	right: 0;
+	margin-right: 15%;
+	text-align: right;
+	transform: translate(0,-50%);
+	text-shadow: 0 0 0.15em white;
+	width: 100%;
+	text-transform: uppercase;
+}
+
+#headblock-text-diseases {
+    top: 50%;
+	text-align: center;
+	transform: translate(0,-50%);
+	text-shadow: 0 0 0.15em white;
+	width: 100%;
+	text-transform: uppercase;
+}
+
+#headblock-text-contacts {
+	text-align: right;
+	right: 0;
+	padding-right: 5%;
+    top: 6em;
+	text-shadow: 0 0 0.15em white;
+	box-sizing: border-box;
+}
+
+#headblock-text-contacts p {font-size: 150%;}
+
+/* 3.2.2 Блок текстовый /малый/ */
+
+.post-text {
+	position: relative;
+	background-color: white; 
+	color: #054a71; 
+	padding: 1em; 
+	text-transform: uppercase;
+	font-family: 'Playfair Display', serif;
+	box-sizing: border-box;
+	z-index: 1;
+}
+
+#post-txt-contacts {
+	position: absolute;
+	top: 30%;
+	left: 10%;
+	right: 50%;
+	text-align: center;
+}
+
+/* 3.2.3 Первый блок /пустой блок, используется в шаблоне для палитры цветов/ */
+
+.block-1 {
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+    margin: 2em 2em 2em 0;
+    border-radius: 0.3em;
+    text-align: center;
+    line-height: 2em;
+}
+
+/* 3.2.4 Иконки страницы "контакты" */
+
+.ico-social {
+    position: absolute;
+	bottom: 15%;
+    left: 10%;
+	right: 50%;
+    height: 4em;
+	z-index: 2;
+	text-align: center;
+}
+
+.ico-social a {
+    height: 4em;
+    width: 4em;
+    display: inline-block;
+    margin: 0 1em;
+	border: 0.1em solid #054a71;
+	border-radius: 0.5em;
+}
+
+.ico-social a:nth-child(1) {
+    background: url(../images/viber.png) no-repeat center center;
+    background-size: cover;
+}
+
+.ico-social a:nth-child(2) {
+    background: url(../images/telegram.png) no-repeat center center;
+    background-size: cover;
+}
+
+.ico-social a:nth-child(3) {
+    background: url(../images/whatsapp.png) no-repeat center center;
+    background-size: cover;
+}
+
+
+
+/* 3.2.6 Блок текстовый большой белый */
+
+.post {
+	position: relative;
+	text-align: center;
+}
+
+.post p {padding: 2em;}
+
+.post h5 {padding: 0 2em;}
+
+.post ol {padding-left: 3em;}
+
+.post .intext {
+	padding: 0 2em 0 4em;
+	text-indent: -1.75em;
+	margin-top: -2em;
+}
+
+.post .intext-next {
+	padding: 0 2em 0 4em;
+	text-indent: -1.75em;
+	margin-top: 0;
+	margin-bottom: -1em;
+}
+
+#post-index {text-align: center;}
+
+#post-index img {
+	margin-top: 2em;
+	margin-right: 60%;
+}
+
+#post-index p {
+	margin-right: 60%;
+	text-align: justify;
+}
+
+#post-1-about {
+	position: relative;
+	text-align: justify;
+	overflow: hidden;
+	border-top: 0.1em dashed #054a71;
+}
+
+#post-1-about p,
+#post-1-about h5 {margin-left: 25%;}
+
+#post-1-about p {padding-right: 5%;}
+
+#post-1-about h5 {
+	padding: 1em 1em 0 1em;
+	text-align: center;
+}
+
+#post-about-2 {
+	padding: 0 5% 0 5%;
+	text-align: justify;
+	overflow: hidden;
+}
+
+#post-1-diseases {margin-right: 30%;}
+
+#post-2-diseases {
+	margin-right: 30%;
+	text-align: justify;
+	border-right: 0.1em dashed #054a71;
+}
+
+#post-3-diseases {
+	margin-left: 30%;
+	text-align: justify;
+	border-left: 0.1em dashed #054a71;
+}
+
+#post-review, 
+#post-events {
+	margin-left: 20%;
+	margin-right: 20%;
+	text-align: justify;
+	border-bottom: 0.1em dashed #054a71;
+}
+
+#post-events {margin-left: 0;}
+
+#post-2-polyp {
+	margin-right: 50%;
+	text-align: justify;
+	border-right: 0.1em dashed #054a71;
+}
+
+#post-1-diseases p {
+	padding: 2em 0;
+	text-align: justify;
+}
+
+#post-2-diseases h5,
+#post-3-diseases h5 {
+	padding-top: 1em;
+	text-align: left;}
+
+#post-contacts {
+	padding: 2em 1em;
+	text-align: center;
+}
+
+#post-subdiseases {
+	display: table;
+	height: 9em;
+	width: 100%;
+	text-align: center;
+}
+
+#post-subdiseases h5 {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0;
+}
+
+#post-1-polyp {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translate(0,-50%);
+	margin-right: 0;
+	margin-left: 50%;
+	text-align: justify;
+	padding: 0;
+	border-left: 0.1em dashed #054a71;
+}
+
+#post-1-prolapse {
+	margin-right: 50%;
+	text-align: right;
+	border-right: 0.1em dashed #054a71;
+}
+
+#post-2-prolapse {
+	margin-left: 50%;
+	text-align: justify;
+}
+
+.blue-circle,
+.circle {
+	position: relative;
+	width: 9em;
+    height: 9em;
+	border-radius: 50%;
+}
+
+.side-circle {
+    height: 4em;
+	width: 4em;
+	border-radius: 50%;
+}
+
+.circle {
+	background: url(../images/consultation.png) center center no-repeat #0cbcf5;
+	background-size: 65%;
+	position: absolute;
+	top: 50%;
+	right: 15%;
+	transform: translate(50%,-50%);
+}
+
+.circle-l,
+.circle-l10 {
+	left: 15%;
+	right: auto;
+	transform: translate(-50%,-50%);
+}
+
+.circle-l10 {left: 10%;}
+
+.block-right {
+	position: absolute;
+	left: 70%;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.calendar {
+	position: relative;
+	display: inline-block;
+	margin: 1em;
+	float: left;
+	width: 6em;
+	height: 6em;
+	background: url(../images/calendar-256.png) center center no-repeat;
+	background-size: cover;
+}
+
+.calendar-txt {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%,0);
+	color: #054a71;
+}
+
+
+
+#blue-circle-index {
+	background: url(../images/human-uterus.png) center center no-repeat #0cbcf5;
+	background-size: 75%;
+}
+
+#circle-1 {
+	background: url(../images/consultation.png) center center no-repeat #0cbcf5;
+	background-size: 65%;
+}
+
+#circle-2 {
+	background: url(../images/embryo.png) center center no-repeat;
+	background-size: 100%;
+}
+
+#circle-3 {
+	background: url(../images/human-uterus.png) center center no-repeat;
+    background-size: 75%;
+}
+
+#circle-4 {
+	background: url(../images/pelvic-area.png) center center no-repeat;
+	background-size: 65%;
+}
+
+#circle-5 {
+	background: url(../images/blood-1.png) center center no-repeat #0cbcf5;
+	background-size: 65%;
+}
+
+#circle-6 {
+	background: url(../images/sperm.png) center center no-repeat #0cbcf5;
+	background-size: 65%;
+}
+
+#circle-7 {
+	background: url(../images/uterus-vag.png) center center no-repeat silver;
+	background-size: 75%;
+}
+
+#circle-8 {
+	background: url(../images/uterus-cerv.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-9 {
+	background: url(../images/uterus-ut.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-10 {
+	background: url(../images/uterus-tube.png) center center no-repeat;
+	background-size: 75%;
+
+}
+
+#circle-11 {
+	background: url(../images/uterus-ov.png) center center no-repeat silver;
+	background-size: 75%;
+}
+
+#circle-12 {
+	background: url(../images/uterus-cav.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-13 {
+	background: url(../images/gynecology.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-14 {
+	background: url(../images/gynecologist.png) center center no-repeat;
+	background-size: 65%;
+}
+
+#circle-15 {
+	background: url(../images/doctor-term.png) center center no-repeat;
+	background-size: 65%;
+	filter: invert(1);
+}
+
+#circle-16 {
+	background: url(../images/vagina.png) center center no-repeat;
+	background-size: 100%;
+}
+
+#circle-17 {
+	width: 11em;
+    height: 11em;
+	background: url(../images/prolapse-cir.png) center center no-repeat;
+	background-size: 100%;
+	border: 0.2em solid #054a71;
+}
+
+#circle-18 {
+	background: url(../images/surgery-room.png) center center no-repeat;
+	background-size: 70%;
+}
+
+#circle-19 {
+	background: url(../images/surgery.png) center center no-repeat;
+	background-size: 70%;
+}
+
+#circle-20 {
+	background: url(../images/vagina-1.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-21 {
+	background: url(../images/pharmacy.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-22 {
+	background: url(../images/medical.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-23 {
+	background: url(../images/surgeon.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-24 {
+	background: url(../images/surgeon-hand.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-25 {
+	background: url(../images/review.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-26 {
+	background: url(../images/endometriosis.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-27,
+#circle-27-b {
+	background: url(../images/examination.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-28,
+#circle-28-b {
+	background: url(../images/heart-rate.png) center center no-repeat;
+	background-size: 75%;
+}
+
+
+#circle-29,
+#circle-29-b {
+	background: url(../images/shaving-razor.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-30,
+#circle-30-b {
+	background: url(../images/enema.png) center center no-repeat;
+	background-size: 70%;
+}
+
+#circle-27-b,
+#circle-28-b,
+#circle-29-b,
+#circle-30-b {
+	background-color: #f3430a;
+	filter: invert(1);
+}
+
+#circle-review {background-size: 113%;}
+
+#img-index {
+	position: absolute;
+	height: 100%;
+	width: 60%;
+	top: 0;
+	right: 0;
+	background: url(../images/18700443_1474120632651743_8646591305454162787_o.jpg) center center;
+    background-size: cover;
+}
+
+
+
+#img-1-about {
+	position: absolute;
+	top: 20%;
+	height: 60%;
+	left: 5%;
+	width: 20%;
+	background: url(../images/w_a2152962.jpg) top center;
+    background-size: cover;
+}
+
+#img-2-about {
+	position: relative;
+	float: right;
+	width: 30%;
+	background-color: #054a71;
+	margin: 2em 5% 1em 2em;
+}
+
+#post-img-about-3 {
+	position: relative;
+	width: 50%;
+	background-color: #054a71;
+	float: right;
+}
+
+#img-4-about {
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	right: 10%;
+	width: 22%;
+	background-color: #054a71;
+	z-index: 2;
+}
+
+#img-1-diseases,
+#img-2-diseases,
+#img-3-diseases,
+#img-4-prolapse {
+	position: absolute;
+	top: 20%;
+	height: 60%;
+	width: 30%;
+}
+
+#img-1-diseases {
+	left: 0%;
+	background: url(../images/endometrios.png) center center no-repeat;
+    background-size: contain;
+}
+
+#img-2-diseases {
+	right: 0%;
+	background: url(../images/shema.jpg) center center no-repeat;
+    background-size: contain;
+}
+
+#img-3-diseases {
+	left: 0%;
+	background: url(../images/extrauterina.png) center center no-repeat;
+    background-size: contain;
+}
+
+#img-4-prolapse {
+	right: 0%;
+	background: url(../images/prolapse-grid.jpg) center center no-repeat;
+    background-size: cover;
+	border: 0.2em solid white;
+	box-sizing: border-box;
+}
+
+#img-1-polyp {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	left: 50%;
+	background: url(../images/13819.png) center center no-repeat #0cbcf5;
+    background-size: contain;
+}
+
+#img-2-polyp {
+	position: relative;
+	top: 0;
+	height: 100%;
+	height: 20em;
+	width: 50%;
+	left: 0;
+	background: url(../images/resectoscope.jpg) center center no-repeat white;
+    background-size: contain;
+}
+
+#img-1-prolapse {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	left: 50%;
+	background: url(../images/prolapce_class.png) center center no-repeat #0cbcf5;
+    background-size: contain;
+}
+
+#img-2-prolapse {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	left: 0;
+	background: url(../images/prolapce_pop.png) center center no-repeat silver;
+    background-size: contain;
+	border-right: 0.1em dashed #054a71;
+}
+
+#img-3-prolapse {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	left: 0;
+	background: url(../images/StagesOfProlapse.jpg) center center no-repeat white;
+    background-size: contain;
+	border-right: 0.1em dashed #054a71;
+	border-bottom: 0.1em dashed #054a71;
+}
+
+
+
+
+#post-txt-about {padding: 0 20%;}
+
+#post-txt-prolapse {padding: 0 10%;}
+
+/* 3.2.7 Блок обратной связи */
+
+.input {
+	box-sizing: border-box; /* предотвращает смещение элементов */
+	font-family: 'Roboto', 'Times New Roman', Times, sans-serif;
+	font-size: 100%;
+	width: 100%;
+	line-height: 1em;
+    border-radius: 0.3em;
+    border: 0.05em solid black;
+    outline: none;
+	margin: 0 0 1em 0;
+	padding: 0.5em 1em;
+}
+
+
+
+/* Галлерея */
+
+.gallary {
+	white-space: nowrap;
+	width: 100%;
+	overflow: auto;
+}
+
+.gallary-img {
+	padding: 1em 0;
+}
+
+.gallary-img a {
+	padding: 0 1em 0 0;
+}
+
+.gallary-img a:nth-child(1) {
+	padding-left: 1em;
+}
+
+.gallary-img img {
+	border-radius: 0.05em;
+	background-color: #054a71;
+	border: 0.2em solid white;
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+}
+
+.gallary-img img:hover {
+	transform: scale(1.1);
+}
+
+
+/* 3.2.8 Блок соотношения сторон */
+
+.post-ratio {position: relative;}
+
+.item-1by1 {padding-top: 100%;}
+
+.item-560by315 {padding-top: 56.25%;} /* (9:16)*100% */
+
+.item-640by480 {padding-top: 75%;} /* (3:4)*100% */ 
+
+.item-1280by853 {padding-top: 66.69%;}  
+
+#rectangle-blue-ratio {width: 100%;} 
+
+#rectangle-gray-ratio { /* замена цвета блока на с голубого на серый */
+	width: 100%;
+	background-color: silver;
+}
+
+.ratio-main-cover { /* данный стиль нужен для создания границ блока */
+	position: relative;
+	margin-right: 50%;
+	margin-left: 15%;
+}
+
+
+.ratio-main {position: relative;}
+
+.ratio-main:before { /* данный стиль нужен для создания пропорционально изменяющегося блока, меняя padding-top в .item560y315 можно менять соотношение сторон */ 
+	display: block;
+	content: "";
+	width: 100%;
+}
+
+
+.ratio-main #obj-ratio,
+.ratio-main #obj-ratio-no-fon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	height: 100%;
+}
+
+.ratio-main #obj-ratio {
+	outline: 0.2em solid white;
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+	background-color: #0172b2;
+}
+
+.ratio-text-r,
+.ratio-text-l,
+.ratio-text-30r,
+.ratio-text-30l,
+.ratio-text-65r,
+.ratio-text-65l {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translate(0,-50%);
+	margin-right: 5%;
+	margin-left: 55%;
+	text-align: justify;
+}
+
+.ratio-text-l {
+	margin-left: 5%;
+	margin-right: 55%;
+	text-align: right;
+}
+
+.ratio-text-30r,
+.ratio-text-30l {
+	margin-left: 0;
+	margin-right: 30%;
+	padding: 2em;
+	box-sizing: border-box;
+}
+
+.ratio-text-30l {
+	margin-left: 30%;
+	margin-right: 0;
+}
+
+.ratio-text-65r,
+.ratio-text-65l {
+	margin-left: 0;
+	margin-right: 65%;
+	box-sizing: border-box;
+}
+
+.ratio-text-65l {
+	margin-left: 65%;
+	margin-right: 0;
+}
+
+.ratio-text-r h5,
+.ratio-text-l h5 {display: block;}
+.ratio-text-r h6,
+.ratio-text-l h6 {display: none;}
+
+#ratio-text {padding: 2em 0;}
+
+#post-ratio-text-gray {color: black;}
+
+#post-ratio-link { /* стиль внешней ссылки */
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0;
+	transition: 0.5s;
+	z-index: 1;
+}
+
+#post-ratio-link:hover {
+	opacity: 0.7;
+}
+
+#post-ratio-link h3 {
+	display: block;
+	position: absolute;
+	color: white;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.post-table {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	border: 0.1em dashed #054a71;
+	overflow: hidden;
+}
+
+.diseases-l,
+.diseases-c,
+.diseases-r {
+	height: 20em;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.diseases-l {
+	background-color: #0cbcf5;
+}
+
+.diseases-r {
+	background-color: white;
+}
+
+.diseases-l h6,
+.diseases-r h6 {
+	color: #054a71; 
+	padding: 1em; 
+	text-transform: uppercase;
+	font-family: 'Playfair Display', serif;
+}
+
+.diseases-l div,
+.diseases-c div,
+.diseases-r div {margin-left: auto; margin-right: auto;}
+
+.diseases-c {padding: 2em 0;}
+
+.diseases-l:hover,
+.diseases-r:hover {transform: scale(1.1);}
+
+
+/* 3.3 БОКОВОЕ МЕНЮ */
+
+.aside-menu {
+    background-color: #054a71;
+    position: sticky;
+    top: 8em;
+    border-radius: 0.5em;
+    border: 0.2em solid white;
+    box-shadow: 0 0 0.5em rgba(0,0,0,0.5);
+	overflow: hidden;
+}
+
+.aside-menu a {
+    color: white;
+    display: block;
+    padding: 1em;
+    text-align: center;
+    z-index: 10;
+    background-color: #054a71;
+}
+
+.aside-menu a.active-scroll,
+.aside-menu a:hover {background-color: #0172b2;}
+
+.aside-block {
+	background-color: #054a71;
+    position: sticky;
+    top: 8em;
+	bottom: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	padding: 2em;
+}
+
+.sticky-block {
+	position: sticky;
+	top: 6em;
+	overflow: hidden;
+}
+
+.select-wrapper {
+	margin: 1em;
+	background-color: #054a71;	
+	border-radius: 4px;
+    border: 0.2em solid white;
+    box-shadow: 0 0 0.5em rgba(0,0,0,0.5);
+	text-align: center;
+	}
+
+.js-example-basic-single {width: 100%;}
+
+.grid { 
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.grid-main {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	grid-gap: 1em;
+}
+  
+.grid a {
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-top: 0.1em dashed #054a71;
+	font-family: 'Playfair Display', serif;
+}
+
+.grid-main a {
+	border: 0.1em dashed #054a71;
+	outline: 0.2em solid white;
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+	background-color: #0172b2;
+}
+
+.grid a:nth-child(2) {background-color: #0cbcf5;}
+
+.grid a:nth-child(4) {background-color: silver;}
+
+.grid a:nth-child(3) {background-color: white;}
+
+
+.grid a:nth-child(even) div {
+	margin: 1em 0 1em 1em;
+}
+
+.grid a:nth-child(odd) div {
+	margin: 1em 1em 1em 0;
+}
+
+.grid a:nth-child(odd) div,
+.grid a:nth-child(odd) h6 {filter: invert(1);}
+
+.grid a :nth-child(3) {display:none;}
+
+.grid a.active-scroll,
+.grid a:hover {
+	border-color: white;
+	background-color: #054a71;}
+
+.grid a.active-scroll:nth-child(odd),
+.grid a:nth-child(odd):hover  {
+	border-color: black;
+	filter: invert(1);
+	background-color: #fab58e;}
+
+.grid-wide {
+	display: grid;
+	grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+	margin: 1em;
+}
+
+#grid-wide-index {
+	background-color: #86dbf6;
+	border: 0.1em dashed #054a71;
+	outline: 0.2em solid white;
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+}
+
+#grid-wide-index:hover {
+	background-color: #fab58e;
+	filter: invert(1);
+
+}
+
+.grid-text {
+	margin: auto;
+	text-transform: uppercase;
+	font-family: 'Playfair Display', serif;
+	text-align: center;
+}
+
+#grid-text-w {
+	color: black;
+}
+
+#grid-text-prep {
+	grid-column-start: 2;
+	grid-column-end: 5; 
+}
+
+.sticky-events {
+	grid-template-rows: 5.4em 1fr 1fr 1fr;
+}
+
+.circle-prep-1 {
+	grid-column-start: 1;
+}
+
+#circle-prep-2 {}
+
+.grig-circle {margin: 0.5em auto;}
+
+.img-grid {
+	margin-top:1em;
+	display: grid;
+	box-shadow: 0 0 .1em .1em rgba(0,0,0,0.5);
+	border: 0.1em solid #054a71;
+	border-radius: 0.3em;
+}
+
+.img-grid img,
+.aside-events div {
+	border-radius: 0.05em;
+	background-color: #054a71;
+	border: 0.2em solid white;
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+	margin: 0 !important;
+	filter: invert(0) !important;
+	width: 100%;
+	height: 100%;
+}
+
+#aside-grid-UT {
+	background: url(../images/youtube-chnl.png) center center no-repeat;
+	background-size: cover;
+}
+
+#aside-grid-IG {
+	background: url(../images/orlova.jpg) center center no-repeat;
+	background-size: cover;
+}
+
+#aside-grid-FB {
+	background: url(../images/fb-profile.jpg) center center no-repeat;
+	background-size: cover;
+}
+
+.aside-events {
+	position: relative;
+	margin: 0;
+}
+
+.aside-events h6,
+.aside-events p {
+	display: grid;
+	position: absolute;
+	place-items: center;
+	text-align: center;
+	text-transform: uppercase;
+	color: #054a71;
+	height: 100%;
+	width: 100%;
+	padding: 1em;
+	background-color: rgba(0,0,0,.3);
+	text-shadow: white 1px 1px 0, white -1px -1px 0, 
+                 white -1px 1px 0, white 1px -1px 0;
+}
+
+
+
+.aside-events {padding: 1em;}
+
+.aside-events:hover {
+	padding: 0.5em;
+	filter: invert(0) !important;
+	background-color: #054a71 !important;
+}
+
+#img-grid-1 {
+	padding: 0.5em;
+	grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+	grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+	grid-gap: 0.5em;
+	grid-auto-flow: dense;
+}
+
+.post-event {
+	border-bottom: 0.1em dashed #054a71;
+}
+
+.event_text {padding: 1em;}
+
+.event_text p {
+	padding: 1em 1em 0 1em;
+	white-space: pre-wrap;
+}
+
+.events-post-heading p {
+	padding: 1em 1em 0 1em;
+}
+
+.fb-cover {
+	position: relative;
+	text-align: center;
+	padding: 1em 0;
+}
+
+.fb-post {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+
+.menu-right {
+	display: grid;
+	background-color: #054a71;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Playfair Display', serif;
+	text-transform: uppercase;
+	color: white;
+	height: 100%;
+	padding: 2em;
+	z-index: 2;
+}
+
+.menu-right-cover p {padding: 0;}
+
+.auto-height {height: auto;}
+
+.menu-right-cover {
+	display: flex;
+	flex-direction: column;
+	color: white;
+	align-items: center;
+}
+
+.menu-right-cover div {margin: 1em;}
+
+.menu-right-cover:hover {transform: scale(1.1);}
+
+/* 3.4 ЯКОРЯ */
+
+.anchor-down {
+	display: block;
+	position: relative;
+	top: -6em;
+	visibility: hidden;
+}
+
+
+
+/* 4. СТРАНИЦА 404 */
+
+.page-404 {
+	position: relative;
+	height: 100%;
+}
+
+.img-404 {
+	background: url(../images/IMG_Dragon_20200806_145346_processed.jpg) center center no-repeat #054a71;
+	background-size: cover;
+	height: 60%;
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	right: 60%;
+	left: 5%;
+	border: 0.2em solid white;
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+}
+
+.txt-404 {
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	left: 45%;
+	right: 5%;
+	text-align: center;
+}
+
+.ico-404 {
+	height: 6em;
+	width: 6em;
+	background: url(../images/404-error-1-512.png) center center no-repeat;
+	background-size: contain;
+	margin-left: 50%;
+	transform: translate(-50%,0);
+}
+
+.development {
+	background: url(../images/coding.png) center center no-repeat;
+	background-size: contain;
+}
+
+.post-history {
+	margin-right: 5%;
+	margin-left: 45%;
+	padding: 2em 0;
+}
+
+
+
+/* 5. СТРУКТУРНЫЕ ЭЛЕМЕНТЫ ПОДВАЛА */
+
+.footer {
+    clear: both; /* Отмена обтекания */
+    color: white;
+    border-top: 0.1em solid white;
+    text-align: center;
+    background-color: black;
+    padding: 1em 0;
+	position: relative;
+}
+
+#footer-404 {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.footer .shapka-social { /*дублирование иконок из шапки в футер */
+	position: absolute;
+	left: 2em;
+	top: 0.625em;
+}
+
+.footer .shapka-social a:nth-child(5),
+.footer .shapka-social a:nth-child(6) {
+	display: inline-block;
+}
+
+.underfooter {
+	position: relative;
+	text-align: center;
+	background-color: black;
+	padding: 1em;
+	color: silver;
+	font-size: 11pt;
+	border-top: 0.1em solid silver;
+}
+
+.underfooter a {color: silver;}
+
+.reviews {
+	padding: 2em;
+}
+
+.review_text p {padding: 1em 0 0 3em;}
+
+  /* CSS для рейтинга (звезды) */
+
+.rating-area {
+	overflow: hidden;
+	position: absolute;
+	top: 1em;
+	margin: 0;
+}
+.rating-area:not(:checked) > input {
+	display: none;
+}
+.rating-area:not(:checked) > label {
+	float: right;
+	width: 1em;
+	padding: 0;
+	cursor: pointer;
+	font-size: 2em;
+	line-height: 1em;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+	content: '★';
+}
+.rating-area > input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+	position: relative;
+}
+
+.rating-result {
+	margin: 0 auto;
+	padding: 0;
+	font-size: 1.5em;
+	line-height: 1em;
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+
+.star-1:before {
+	content: '★';
+}
+
+.star-2:before {
+	content: '★★';
+}
+
+.star-3:before {
+	content: '★★★';
+}
+
+.star-4:before {
+	content: '★★★★';
+}
+
+.star-5:before {
+	content: '★★★★★';
+}
+
+/* всплывающее окно на темном фоне */
+
+
+.bg {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: black;
+	opacity: 0.7;
+	transition: 0.3s;
+	z-index: 500;
+}
+
+.bgform {
+	display: flex;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	transition: 0.5s;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+
+
+.recaptcha-check  {display: none;}
+
+.recaptcha-not-check  {
+	display: block;
+	position: absolute;
+	color: red;
+	transition: 0.3s;
+}
+
+/* 6. ВЫРАВНИВАНИЯ /alignments/ */
+
+.pr {position: relative;}
+
+hr {border-bottom: 0.1em solid #054a71;}
+
+.post-30em {height: 30em;}
+
+.pad-h-2em {padding: 2em 0;}
+
+.btn-dbl-s {border: 0.3em double silver;}
+	
+.btn-dbl-w {border: 0.3em double white;}
+
+.w {color: white;}
+
+.bw {background-color: white;}
+
+.bs {background-color: silver;}
+
+.b6 {background-color: #e4e4e4;}
+
+.bb {background-color: #0cbcf5;}
+
+.border {border: 0.2em solid white;}
+
+.border-b {border: 0.2em solid black;}
+
+.b-thin {
+	border-width: 0.1em;
+}
+
+.border-white {
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+	box-sizing: border-box;
+	outline: 0.2em solid white;
+}
+
+.border-dashed	{border: 0.1em dashed #054a71;}
+
+.t20 {
+	top: 20%;
+	height: 80%;
+}
+
+.b20 {
+	top: 0;
+	height: 80%;
+}
+
+.l20 {
+	left: 20%;
+	width: 80%;
+}
+
+.r20 {
+	left: 0;
+	width: 80%;
+}
+
+.r15 {
+	left: 0;
+	width: 85%;
+}
+
+.r10 {
+	left: 0;
+	width: 90%;
+}
+
+.r30 {
+	left: 0;
+	width: 70%;
+}
+
+.r70 {
+	left: 0;
+	width: 30%;
+}
+
+.l70 {
+	left: 70%;
+	width: 30%;
+}
+
+.l10 {
+	left: 10%;
+	width: 90%;
+}
+
+.l20 {
+	left: 20%;
+	width: 80%;
+}
+
+.rect-w-35-r-15 {
+	width: 35%;
+	left: 50%;
+}
+
+.rect-w-70-l-10 {
+	width: 70%;
+    left: 10%;
+}
+
+.rect-h-70 {
+	height: 70%;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+
+.rect-w-95r-h-70 {
+	height: 70%;
+	width: 95%;
+	top: 50%;
+	left: 15%;
+	transform: translate(0,-50%);	
+}
+
+.rect-w-95l-h-70 {
+	height: 70%;
+	width: 95%;
+	top: 50%;
+	left: 0;
+	transform: translate(0,-50%);	
+}
+
+.margin-r-l-0 {margin: 0;}
+
+.margin-r-5-l-50 {
+	margin-right: 5%;
+	margin-left: 50%;
+}
+
+.margin-r-5-l-70 {
+	margin-right: 5%;
+	margin-left: 70%;
+}
+
+.margin-r-10-l-55 {
+	margin-right: 10%;
+	margin-left: 55%;
+}
+
+.margin-l-5-r-35 {
+	margin-right: 35%;
+	margin-left: 5%;
+}
+
+.margin-l-5-r-50 {
+	margin-right: 50%;
+	margin-left: 5%;
+}
+
+.margin-l-5-r-55 {
+	margin-right: 55%;
+	margin-left: 5%;
+}
+
+.margin-l-5-r-70 {
+	margin-right: 70%;
+	margin-left: 5%;
+}
+
+.margin-l-10-r-30 {
+	margin-right: 30%;
+	margin-left: 10%;
+}
+
+.margin-l-10-r-55 {
+	margin-right: 55%;
+	margin-left: 10%;
+}
+
+.margin-l-15-r-50 {
+	margin-right: 50%;
+	margin-left: 15%;
+}
+
+/* остановите войну! */
+
+.stopwar {
+	height: 100vh;
+	position: relative;
+	font-family: 'Playfair Display', serif;
+	z-index: 1;
+}
+
+.stop-war1 {
+	height: 50vh;
+	background-color: blue;}
+
+.stop-war2 {
+	height: 50vh;
+	background-color: yellow;}
+
+.stop-war {
+	position: absolute;
+    top: 50%;
+	right: 0;
+	color: red;
+	text-align: center;
+	transform: translate(0,-50%);
+	text-shadow: 0 0 0.15em black;
+	width: 100%;
+	z-index: 1003;
+}
+
+.stop-war h1 {
+	font-size: 10vw;
+	text-transform: none;
+}
+
+/* 6. ОЧИСТКА СТИЛЕЙ */
+
+/* Прелоадер, взято с сайта https://itchief.ru/javascript/how-to-make-preloader-for-site */
+ 
+
+/* 7. АДАПТАЦИЯ /под разные размеры экрана/ */
+@media screen and (max-width: 2048px) {
+	#head-logo-img-index {
+		background: url('../images/main-bckgrnd.jpg') no-repeat fixed 50% 5%;
+		background-size: cover;
+	}
+	#top-block-2 {
+		display: none;
+	}
+	#top-block-scrl {
+		display: block;		
+		right: 0;
+		box-shadow: 0 0 0.5em rgba(0,0,0,0.5);
+		transition: .5s ease-in-out;
+	}
+}
+
+@media screen and (max-width: 1280px) {
+    .rect-w-35-r-15 {width: 40%;} /* отступ справа 10% */
+	.rect-w-70-l-10 {width: 75%} /* отступ справа 15% */
+	.margin-l-15-r-50,
+	.margin-l-10-r-55,
+	.margin-l-10-r-30 {margin-left: 5%;}
+	.margin-l-10-r-30 {margin-right: 25%;}
+	.calendar {
+		width: 5em;
+		height: 5em;
+	}
+	#post-txt-about {padding: 0 10%;}
+
+	#img-2-about {
+		width: 35%;
+		margin: 1.5em;
+	}
+	#img-1-about {
+		left: 2em;
+		width: 21.5%;
+	}
+	#img-4-about {right: 5%;}
+/* Б видео */	
+	.ratio-text-r h5,
+	.ratio-text-l h5 {display: none;}
+	.ratio-text-r h6,
+	.ratio-text-l h6 {display: block;}
+}
+
+@media (max-width: 1150px) {
+/* адаптивное выравнивание основных элементов шапки */
+	.logo {display:none;}
+    .shapka-social {left: 1em;}
+    .shapka-social a:nth-child(5) {display: inline-block;}
+    .s-mail {display: none;}
+/* структурные элементы тела */
+	.sidebar-review	{right: 75%;}
+	.sidebar-right-review {left: 75%;}
+	#post-review {margin: 0 25%;}
+	#post-events {margin-right: 25%;}
+	.grid h6 {font-size: 125%;}
+	.grid-main {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+	#headblock-text-index {margin-left: 5%;}
+	#btn-header-1 {left: 10%;}
+	#btn-header-2 {right: 10%;}
+	.rect-w-70-l-10 {width: 80%} /* отступ справа 10% */
+	.rect-w-95l-h-70 {width: 100%;} 
+	.rectangle-img {
+		left: 5%;
+		width: 45%;
+	}
+    .rect-w-35-r-15 { /* смещение влево на 5% отступ справа 5% */
+		left: 45%;
+		width: 50%;
+	}
+	#post-endometriosis p {padding: 1em;}
+	.calendar {
+		
+	}
+	#img-grid-1 {
+		grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+		grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+	}
+	.footer .shapka-social {
+		position: static;
+		margin-left: 1.25em; /*смещение иконок в футете на центр */
+	}
+	.footer p {margin-top: 0.5em;}
+}
+
+@media (max-width: 980px) { /* padding 1.5em */
+	#top-block-404 {display: none;}
+/* якоря */
+	.anchor-down {top: -3em;}
+/* адаптивное выравнивание основных элементов шапки */
+    #top-block-scrl {display: none;}
+    .shapka-social a:nth-child(6) {display: inline-block;}
+    .contact-phone {display: none;}
+/* основное меню сайта */
+	body.lock {
+		overflow: hidden;
+	}
+    #menu {
+		overflow: auto;
+		height: 0;
+        width: 100%;
+        padding: 0;
+        z-index: 100;
+		transition: .5s ease-in-out;
+    }
+    #menu li {
+        text-align: center;
+        background-color: black;
+        float: none;
+		z-index: 101;
+    }
+    #menu li:after {content: none;}
+	#menu li:last-child {padding-bottom: 1em;}
+    #menu a {
+        padding: 1.5em 0;
+        height: 1em;
+        margin: 0 1em;
+    }
+    #menu a:before, #menu a:after {bottom: 0;}
+    #menubtn {display: block;}
+/* языковая панель */
+    .lang-menu {right: 4em;}
+/* структурные элементы тела */
+	.underheader-fixed {height: 3em;}
+	#underheader-static {height: 0;}
+	.subwrapper {
+        display: block;
+        width: auto;
+    }
+	.sticky-block {top: 3em;}	
+    .sidebar {
+        float: none;
+        height: auto;
+        width: auto;
+    }
+    .aside-menu {
+        margin-left: auto;
+        margin-right: auto;
+        width: inherit
+	}
+	.grid h6 {font-size: 150%;}
+	.grid a :nth-child(2) {display:none;}
+	.grid a :nth-child(3) {display:block;}
+	.sticky-events a :nth-child(2) {display:grid;}
+	.sticky-events {grid-template-rows: 5.4em 100vw 100vw 100vw;}
+    .main-section {width: auto;}
+	#btn-header-1, #btn-header-2 {font-size: 125%}
+	#headblock-text-index {top: 5em;}
+	#headblock-text-contacts {
+		top: 6em;
+		padding-right: 1.5em;
+	}
+	#headblock-text-index h3 {margin-right: 15%;}
+	#headblock-text-about {
+	margin-right: 0;
+	text-align: center;
+	padding: 1.5em;
+	}
+	.pad-h-2em {padding: 0;}
+/* Б 35em */
+	.rect-w-35-r-15 {left: 50%;}
+
+	.rectangle-img {
+		left: 0%;
+		width: 50%;
+	}
+
+	.ratio-text-r,
+	.ratio-text-l,
+	.ratio-text-30r,
+	.ratio-text-30l,
+	.ratio-text-65r,
+	.ratio-text-65l	{
+		color: white;
+		position: relative;
+		transform: none;
+		top: 0;
+		left: 0;
+		margin: 0;
+		background-color: #0172b2;
+		padding: 0;
+	}
+	.ratio-main-cover {margin: 0;}
+	.ratio-main-cover.margin-l-10-r-30 {margin-right: 20%;}
+
+	#post-1-polyp {
+		position: relative;
+		transform: none;
+		margin-left: 0;
+	}
+	#post-2-polyp,
+	#post-1-prolapse,
+	#post-2-prolapse {margin: 0;}
+	#post-1-prolapse {text-align: center;}
+	
+	#post-txt-about,
+	#post-txt-prolapse {padding: inherit;}
+	
+	#ratio-text {text-align: center;}
+	
+	.post p,
+	.sidebar,
+	.reviews,
+	#headblock-text-diseases,
+	#post-1-about p,
+	#post-1-diseases p,
+ 	.rectangle-txt,
+	.pad-h5-h6,
+	#ratio-text,
+	#rectangle-txt-back-form {
+		padding: 1.5em;
+		margin-right: 0;
+	}
+	
+	#img-2-about {
+		width: 40%;
+		
+	}
+	#img-4-about {right: 0%;}
+	#img-1-polyp,
+	#img-1-prolapse,
+	#img-2-prolapse,
+	#img-3-prolapse {
+		margin-top: 1em;
+		position: relative;
+		height: 20em;
+		width: 100%;
+		left: 0;
+		right: 0;
+		margin: 0;
+	}
+	#img-2-polyp {
+		width: 100%;
+	}
+	
+	.post .intext {
+		padding: 0 1.5em 0 3em;		
+		text-indent: -1.75em;
+		margin-top: -1.5em;
+	}
+
+	.post .intext-next {
+		padding: 0 1.5em 0 3em;		
+		text-indent: -1.75em;
+		margin-bottom: -0.5em;
+	}
+}
+@media (max-width: 800px) {
+	.underheader-fixed {height: 0;}
+	.sticky-block {top: 0;}	
+/* якоря */
+	.anchor-down {top: 0;}
+/* шапка */
+    #top-block-1 {
+		position: absolute;
+		width: 100%;
+	}	
+	.top-block-elements,
+	.shapka-social, 
+	#menu,
+    #menubtn,
+    .lang-menu {position: absolute;}
+
+/* заголовок */
+	#head-logo-img-index {
+		background: url('../images/main-bckgrnd.jpg') no-repeat fixed 50% 0%;}
+	#head-logo-img-contacts {z-index: 0;}
+	#headblock-text-index {
+		margin: auto;
+		padding-left: 1.5em;}
+	#btn-header-1 {left: 5%;}
+	#btn-header-2 {right: 5%;}
+/* посты */
+	.sidebar-right-review {display: none;}
+	#post-review {margin: 0 0 0 30%;}
+	#post-events {margin: 0;}
+	.sidebar-review	{right: 70%;}
+	#btn-text-l,
+	#btn-text-r {float: none;}
+	.grid-main {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+	}
+	.mar-top-800 {margin-top: 1em;}
+	.post-30em {height: auto;}
+	#post-txt-contacts {
+		position: relative;
+		width: 100%;
+		left: auto;
+		right: auto;
+		padding-top: 2em;
+	}
+	.ico-social {
+		position: relative;
+		padding-bottom: 6em;
+		left: auto;
+		right: auto;
+	}
+    .l10, 
+	.l20 {
+		left: 0;
+		width: 100%;
+	}
+	
+	.rectangle-img {
+        position: relative;
+		height: 30em;
+        width: 100%;
+    }
+	.rect-w-70-l-10,
+    .rect-w-35-r-15 {
+		left: 0;
+		width: 100%;
+    }
+	#rectangle-gray-contacts {display: none;}
+	.rectangle-iframe {
+	position: relative;
+	right: 0;
+	border: 0.1em outset black;
+	box-shadow: none;
+	width: 100%;
+	height: 20em;
+	}
+	#post-index img,
+	#post-index p {margin-right: 0;}
+	#img-index {
+		position: relative;
+		width: 100%;
+		height: 30em;
+	}
+	#post-1-about p,
+	#post-1-about h5,
+    #rectangle-txt-back-form {margin: 0;}
+	#img-1-about {
+		position: relative;
+		height: 30em;
+		width: 20em;
+		left: 0;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: 2em;
+	}
+	#img-2-about {width: 55%}
+	/* блок обратной формы */
+	#rectangle-img-back-form {
+	height: 25em;
+	background: url(../images/IMG_1830.png) bottom center no-repeat;
+	background-size: contain;
+	width: 100%;
+	right: 0;
+	}
+	
+/* страница 404 */
+	.img-404 {display: none;}
+	.txt-404 {right: 5%; left: 5%;}
+	.txt-404 h5 {font-size: 175%;}
+	.txt-404 h6 {font-size: 125%;}
+	.post-history {
+		margin: 0;
+		padding: 1em;
+	}
+}
+
+@media (max-width: 660px) { /* padding 1em */
+	h1 {font-size: 300%;}
+	h2 {font-size: 275%;}
+	h3 {font-size: 250%;}
+	h4 {font-size: 225%;}
+	h5 {font-size: 200%;}
+	h6 {font-size: 150%;}
+	#head-logo-35 {
+		position: relative;
+		height: auto;
+	}
+	#head-logo-30 {
+		position: relative;
+		height: auto;
+	}
+	#head-logo-25 {
+		position: relative;
+		height: auto;
+	}
+	.head-logo form {text-align: center;}
+	#head-logo-img-index {
+		height: auto;
+		background: url('../images/main-bckgrnd.jpg') no-repeat fixed 60% 0%;}
+	#head-logo-img-contacts {
+		background: #054a71;
+		z-index: 2;
+	}
+	.headblock-text {position: relative;}
+	#headblock-text-index,
+	#headblock-text-about,
+	#headblock-text-contacts {
+		top: 0;
+		padding: 1.5em 1em;
+
+	}
+	#headblock-text-about {
+		transform: none;
+		text-align: center;
+	}
+	#btn-header-1, #btn-header-2 {
+		position: relative;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin-bottom: 1.5em;
+	}
+	#img-2-about {width: 100%;
+	float: none;
+	padding: 0;
+	margin: 0;
+	}
+	#img-1-diseases,
+	#img-2-diseases,
+	#img-3-diseases, 
+	#img-4-prolapse	{
+		position: relative;
+		height: 20em;
+		width: 100%;
+		left: 0;
+		right: 0;
+		border: 0.1em dashed #054a71;
+		box-sizing: border-box;
+	}
+	#img-1-diseases {
+		background: url(../images/endometrios.png) center center no-repeat white;
+		background-size: contain;
+	}
+	.rectangle-img {height: 30em;}
+
+	.circle,
+	.block-right,
+	.sidebar-review	{
+		position: relative;
+		left: 0;
+		right: 0;
+		transform: none;
+		margin: 0 auto;
+	}
+	
+	.sidebar-right-review {display: none;}
+	
+	.block-right {border-top: 0.1em dashed white;}
+	.circle-cover {padding: 2em 0;}
+
+
+	#post-1-about h5 {padding: 0.5em 1em;}
+	
+	#post-1-diseases,
+	#post-2-diseases,
+	#post-review {margin-right: 0;}
+	
+	#post-review,
+	#post-3-diseases {margin-left: 0;}
+	
+	#post-2-diseases h5,
+	#post-3-diseases h5 {
+		text-align:center;
+		padding: 0.5em 1em 0 1em;
+	}
+
+
+	.post p,
+	.sidebar,
+	.reviews,
+	#headblock-text-diseases,
+	#post-1-about p,
+	#post-1-diseases p,
+ 	.rectangle-txt,
+	.pad-h5-h6,
+	#ratio-text,
+	#rectangle-txt-back-form {padding: 1em;}
+	.diseases-l,
+	.diseases-c,
+	.diseases-r,
+	.main-50-cover {
+		display: block;
+		position: relative;
+		height: auto;
+	}
+	.r30, .r70, .l70, .main-50 {
+		left: 0;
+		right: 0;
+		width: 100%;
+	}
+	.post .intext {
+		padding: 0 1em 0 2em;		
+		text-indent: -1.75em;
+		margin-top: -1em;
+	}
+
+	.post .intext-next {
+		padding: 0 1em 0 2em;		
+		text-indent: -1.75em;
+		margin-bottom: 0;
+	}
+	#btn-post {
+		float: none;
+		margin-top: 1em;
+	}
+	#form_message,
+	#review	{text-align: center;}
+	.recaptcha-not-check {position: relative;}
+	.g-recaptcha {display: inline-block;}
+	.circle-prep-1 {
+		grid-column-start: 1;
+		grid-column-end: 6;
+	}
+	.circle-prep-2 {
+		grid-column-start: 1;
+		grid-column-end: 6;
+		grid-row-start: 3;
+	}
+	#grid-text-prep {
+		grid-row-start: 2;
+		grid-column-start: 1;
+		grid-row-end: 2;
+		grid-column-end: 6; 
+	}
+	#img-grid-1 {
+		grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+		grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 480px) {
+	#top-block-404,
+	#top-block-2 {
+		display: block;
+		position: absolute;
+		width: 100%;
+	}
+	.shapka-social { /* выравнивание иконок по центру */
+		left: 0;
+		right: 0;
+		margin-left: 1em;
+	}
+	.shapka-social a:nth-child(5),
+	.shapka-social a:nth-child(6) {
+		display: block;
+		position: absolute;
+		top: 0em;
+		right: 3em;
+	}
+	.shapka-social a:nth-child(6) {
+		right: 0;
+		margin-right: 1em;}
+	#menu.active {padding-top: 6em;}
+    #menubtn {top: 3em;}
+/* языковая панель */
+    .lang-menu {top: 3em;}
+	.underheader {height: 6em;}
+
+	#headblock-text-contacts p {font-size: 125%;}
+	#rectangle-img-back-form {height: 18em;}
+
+	#img-1-about {
+		width: 100%;
+		margin-bottom: 0.2em;}
+	.footer .shapka-social a:nth-child(5),
+	.footer .shapka-social a:nth-child(6) {display: none;}
+	.grid-wide {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		
+	}
+	
+	#grid-text-w {
+		grid-row-start: 2;
+		grid-column-start: 1;
+		grid-row-end: 2;
+		grid-column-end: 5; 
+	}
+}
+
+@media (max-width: 340px){
+	.shapka-social a:nth-child(5),
+	.shapka-social a:nth-child(6) {
+		display: block;
+		position: absolute;
+		top: 3em;
+		left: 0;
+	}
+	.shapka-social a:nth-child(6) {left: 3.25em;}
+	#top-block-1 {height: 3em;}
+	#top-block-404 {top: 3em;}
+	#top-block-2 {top: 3em;}
+/* основное меню сайта */
+	#menubtn {top: 3em;}
+/* языковая панель */
+    .lang-menu {top: 3em;}
+/* структурные элементы тела */
+	h1 {font-size: 250%;}
+	h2 {font-size: 225%;}
+	h3 {font-size: 200%;}
+	h4 {font-size: 175%;}
+	h5 {font-size: 150%;}
+	h6 {font-size: 125%;}
+	.grid a :nth-child(3) {display:none;}
+	.grid a :nth-child(2) {display:block;}
+	.sticky-events a :nth-child(2) {display:grid;}
+	.rectangle-img {height: 20em;}
+	.ico-social a {height: 3em; width: 3em;}
+	#rectangle-img-back-form {height: 15em;}
+	#btn-header-1, 
+	#btn-header-2 {padding: 0 1em;}
+	.txt-404 {top: 55%;}
+}
+
+/* минимальная ширина экрана 280px */
+
+.block1 {
+  width: 100%;
+  height: 30em;
+  background-color: green;
+}
+
+.block2 {
+  width: 100%;
+  height: 30em;
+  background-color: red;
+}
+
+.block3 {
+  width: 100%;
+  height: 30em;
+  background-color: blue;
+}
+
+.block4 {
+  width: 100%;
+  height: 30em;
+  background-color: gray;
+}
+
+.block5 {
+  width: 100%;
+  height: 30em;
+  background-color: yellow;
+}

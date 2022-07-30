@@ -1,0 +1,102 @@
+body {
+	margin: 0;
+}
+
+.stopwar3 h1 {font-size: 10vw;}
+
+.preloader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #054a71;
+	background-image: linear-gradient(19deg, #0cbcf5 0%, #054a71 100%);
+	z-index: 1001;
+}
+
+.stopwar1 {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 50%;
+	background-color: blue;
+	z-index: 1002;
+}
+
+.stopwar2 {
+	position: fixed;
+	left: 0;
+	top: 50%;
+	right: 0;
+	bottom: 0;
+	background-color: yellow;
+	z-index: 1002;
+}
+
+.stopwar3 {
+	position: fixed;
+    top: 50%;
+	right: 0;
+	color: red;
+	text-align: center;
+	transform: translate(0,-50%);
+	text-shadow: 0 0 0.15em black;
+	width: 100%;
+	z-index: 1003;
+}
+
+.preloader__row {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	width: 70px;
+	height: 70px;
+	margin-top: -35px;
+	margin-left: -35px;
+	text-align: center;
+	animation: preloader-rotate 2s infinite linear;
+	z-index: 1004;
+}
+
+.preloader__item {
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	background-color: grey;
+	border-radius: 100%;
+	width: 35px;
+	height: 35px;
+	animation: preloader-bounce 2s infinite ease-in-out;
+	z-index: 1004;
+}
+
+.preloader__item:last-child {
+	top: auto;
+	bottom: 0;
+	animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes preloader-bounce {
+	0%,
+	100% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1);
+	}
+}
+
+.loaded_hiding .preloader {
+	transition: 0.3s opacity;
+	opacity: 0;
+}
+
+.loaded .preloader {display: none;}

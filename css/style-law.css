@@ -1,0 +1,1552 @@
+/* ------------------------------------------ *\
+
+Автор: Стрижаков Станислав;
+Дизайн: Стрижаков Станислав;
+Использованы фото: автор Стрижаков Станислав;
+Использованы видео: youtube канал Стрижакова Станислава, вставка по открытой лицензии youtube через iframe;
+Верстка и адаптация: Стрижаков Станислав;
+
+В теме применены:
+- jquery 3.5.1
+- fancybox 3.5.7
+
+*** ---------------- ***
+
+Версия х.х
+
+
+*** ---------------- ***
+
+CSS Document >>> TABLE OF CONTENTS:
+# 1. Основные стили
+# 2. Структурные элементы шапки
+	2.1 Прямоугольные блоки шапки
+	2.2 Основное меню сайта
+	2.3 Блок смены языка сайта
+	2.4 Блок в шапке, смещающий тело сайта вниз
+	2.5 Стрелка перехода вверх страницы
+# 3. Структурные элементы тела
+	3.1 Оформление вида тела сайта
+		3.1.1 Цвета темы
+		3.1.2 Группа основных блоков /прямоугольники/
+		3.1.3 Кнопки
+	3.2 Блоки
+		3.2.1 Блок-логотип
+		3.2.2 Блок текстовый
+		3.2.3 Блок первый /пустой/
+		3.2.4 Иконки страницы "контакты"
+		3.2.5 Блок с видео
+		3.2.6 Блок текстовый большой белый
+		3.2.7 Блок обратной связи
+		3.2.8 Блок соотношения сторон
+	3.3 Боковое меню
+	3.4 Якоря
+# 4. Страница 404	
+# 5. Структурные элементы подвала
+# 6. Выравнивания /alignments/ !!! пока не применены
+	6.1 Выравнивание медиа
+# 7. Очистка стилей /clearings/ !!! пока не применены
+# 8. Адаптация /под разные размеры экрана, минимальная ширина экрана 280px, максимальная 1920px/
+	- 1660px
+    - 1280px
+	- 1150px
+	- 1000px
+	- 800px
+	- 660px
+	- 430px
+	- 360px
+	
+Основные шрифты:
+font-family: 'Open Sans', sans-serif;
+font-family: 'Piazzolla', serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Roboto', sans-serif;
+	
+\* ------------------------------------------ */
+
+
+
+/* 1. ОСНОВНЫЕ СТИЛИ, которые будут унаследованы дочерней таблицей стилей */
+
+*,*:before,*:after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+html,body {
+    background: #e4e4e4;
+    font-family: 'Roboto', 'Times New Roman', Times, sans-serif;
+	height: 100%;
+}
+
+p {font-size: 16px; margin: 0;}
+h1 {font-size: 500%; margin: 0;}
+h2 {font-size: 400%; margin: 0;}
+h3 {font-size: 300%; margin: 0;}
+h4 {font-size: 250%; margin: 0;}
+h5 {font-size: 200%; margin: 0;}
+h6 {font-size: 150%; margin: 0;}
+
+a {
+	text-decoration: none; /*убираем подчеркивание текста ссылок*/
+	color: #0172b2;
+} 
+
+ul {
+    list-style: none; /*убираем маркеры списка*/
+    margin: 0; /*убираем верхнее и нижнее поле, равное 1em*/
+    padding-left: 0; /*убираем левый отступ, равный 40px*/
+}
+
+ol, li {margin: 0;}
+
+article {
+	position: relative;
+}
+
+.nowrap { /* класс для запрета переноса строк */
+  white-space: nowrap;
+}
+
+/* 2. СТРУКТУРНЫЕ ЭЛЕМЕНТЫ ШАПКИ
+    /z-index начинается в шапке со 100, в теле до 100/ */
+
+/* 2.1 Прямоугольные блоки шапки */
+
+.top-block {
+	height: 3em;
+	border-bottom: 0.05em solid white;
+    background: url(../images/allfonsru_36711.jpg) center center;
+    background-size: 1300px auto;
+	position: fixed;
+	text-align: center;
+	color: white;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+.top-block-elements {
+	width: 100%;
+	max-width: 2048px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	position: fixed;
+	background: url(../images/allfonsru_36711.jpg) center center;
+    background-size: 1300px auto;
+	z-index: 103;
+}
+
+#top-block-1 {
+	height: 6em;
+    z-index: 101;
+}
+
+#top-block-1 h5 {
+	font-family: 'Alegreya', serif;
+	line-height: 3em;
+}
+
+#top-block-404 {
+	top: 6em;
+	z-index: 101;
+}
+
+/* 2.2 Основное меню сайта */
+
+#menu {
+    top: 3em;
+    display: block;
+    right: 5em;
+    position: absolute;
+    list-style: none;
+    padding: 4em 0;
+    height: 1em;
+    z-index: 102;
+}
+
+#menu li {
+    display: block;
+    float: left;
+}
+
+#menu li:after {
+    content: "|";
+    color: white;
+    display: inline-block;
+    vertical-align:top;
+}
+
+#menu li:last-child:after {content: none;}
+
+#menu a {
+    font-family: 'Roboto', serif;
+    position: relative;
+    padding-bottom: 0;
+    margin: 0 1em; /* размер ячеек меню */
+    text-transform: uppercase; /* все главные буквы */
+    display: inline-block;
+    transition: color .2s;
+}
+
+#menu a, #menu a:visited {color: silver;}
+
+#menu a.current, #menu a:hover{color: white;}
+
+#menu a:before, #menu a:after {
+    content: "";
+    position: absolute;
+    height: 0.1em;
+    top: auto;
+    right: 50%;
+    bottom: -0.3em;
+    left: 50%;
+    background: white;
+    transition: .8s;
+}
+
+#menu a:hover:before, #menu .current:before {left: 0;}
+
+#menu a:hover:after, #menu .current:after {right: 0;}
+
+#menubtn { /* кнопка меню, появляющаяся при уменьшении сайта */
+    background-size: cover;
+	border-radius: 0.15em;
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 2em;
+    width: 2em;
+	padding: 0;
+    margin: 0.5em 1em 0.5em 1em;
+    z-index: 103;
+	overflow: hidden;
+}
+
+#menu.active { /* класс, который будет добавлен в верхнему меню при нажатии на кнопку и покажет скрытое меню*/
+	position: absolute;
+	height: 100vh;
+	right: 0;
+	padding-top: 0;
+	box-sizing: border-box;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 100;
+} 
+
+.menubtn-ico {
+	display: block;
+	position: relative;
+	width: 2em;
+	height: 2em;
+}
+
+.menubtn-ico span {
+	position: absolute;
+	background-color: white;
+	left: 0;
+	width: 100%;
+	height: 0.3em;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+
+.menubtn-ico:before,
+.menubtn-ico:after {
+	content: '';
+	background-color: white;
+	position: absolute;
+	width: 100%;
+	height: 0.3em;
+	left: 0;
+	transition: all 0.3s ease 0s;
+}
+
+.menubtn-ico:before {top: 0;}
+
+.menubtn-ico:after {bottom: 0;}
+
+.menubtn-ico.active span {transform: scale(0);}
+
+.menubtn-ico.active:before {
+	top: 50%;
+	transform: translate(0,-50%) rotate(45deg);
+}
+
+.menubtn-ico.active:after{
+	bottom: 50%;
+	transform: translate(0,50%) rotate(-45deg);
+}
+
+/* 2.3 Блок смены языка сайта */
+
+.lang-menu {
+	display: block;
+	right: 0;
+	top: 6em;
+	width: 5em;
+	position: absolute;
+	z-index: 103;
+}
+
+.lang-menu a {
+    border-bottom: 0.05em solid white;
+    color: white;
+    cursor: pointer;
+    display: block;
+    height: 3em;
+    line-height: 3em;
+    padding-right: 0.75em;
+    text-align: right;
+    width: 5em;
+	user-select: none; /* запрет браузеру выделять текст */
+}
+
+#lang-menu-main {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transition: 0.5s ease-in-out;
+    background: url(../images/allfonsru_36711.jpg) center center;
+    background-size: 1300px auto;
+    transform: scaleY(0);
+    transform-origin: 0 0;
+}
+
+#lang-menu-eng{
+    background: url('../images/lng_eng.png') no-repeat left 0.75em center;
+    background-size: 1.5em auto;
+}
+
+#lang-menu-ua{
+    background: url('../images/lng_ua.png') no-repeat left 0.75em center;
+    background-size: 1.5em auto;
+}
+
+#lang-menu-ru{
+    background: url('../images/lng_ru.png') no-repeat left 0.75em center;
+    background-size: 1.5em auto;
+}
+
+.lang-menu-main ul li:hover #lang-menu-main {transform: scaleY(1);}
+
+#lang-menu-main li:hover {
+	background-color: black;
+	transition: 1s;
+}
+
+.lang-menu li:hover {
+	background-color: black;
+	transition: 1s;
+}
+
+/* 2.4 Блок в шапке, смещающий тело сайта вниз */
+
+.underheader {
+    position: relative;
+    height: 9em;
+}
+
+/* 2.5 Стрелка перехода вверх страницы */
+
+.arrow-up {
+	display: none;
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	background: url(../images/arrow-up-128.png) center center no-repeat #054a71;
+    background-size: 60%;
+	width: 4em;
+    height: 4em;
+	border: 0.3em solid white;
+	border-radius: 50%;
+	opacity: 0.3;
+	z-index: 200;
+	transition: 1s;
+	font-size: 100%;
+}
+
+.arrow-up:hover {
+	opacity: 1;
+}
+
+.arrow-up.up {display: block;}
+
+/* 3. СТРУКТУРНЫЕ ЭЛЕМЕНТЫ ТЕЛА */
+
+/* 3.1 Оформление вида тела сайта */
+
+/* 3.1.1 Цвета темы */
+
+#color-0 {color: white;}
+
+#color-1 {background-color: #0cbcf5;} /* голубой */
+
+#color-2 {background-color: #054a71;} /* темно-синий */
+
+#color-3 {background-color: #0172b2;} /* светло-синий */
+
+#color-4 {background-color: #86dbf6;} /* светло-голубой */
+
+#color-5 {background-color: silver;}
+
+#color-6 {background-color: #e4e4e4;} /* фоновый */
+
+#color-7 {background-color: white; margin-right: 0;}
+
+#color-8 {background-color: gray;} /* серый */
+
+#color-9 {background-color: dimgray;} /* темно-серый */
+
+#color-10 {background-color: #fffac3;} /* фоновый желтый */
+
+/* 3.1.1 Группа основных блоков */
+
+.subwrapper {
+    display: flex;
+    width: auto;
+	max-width: 2048px;
+    margin: 0 auto;
+	outline: 0.1em dashed #054a71;
+}
+
+.main-section {
+    width: 100%;
+    background-color: #e4e4e4;
+    padding: 0;
+	margin: 0;
+}
+
+/* 3.1.2 Cтандартная начинка блоков темы  /прямоугольники/
+	- стандартные прямоугольники w-100% h-100% */
+
+.rectangle-gray,
+.rectangle-blue,
+.rectangle-img {
+    position: absolute;
+    height: 100%; /* высота задана для сохранения размера блока */
+    width: 100%;
+	top: 0;
+	right: 0;
+    left: 0;
+    background-color: silver;
+}
+
+.rectangle-blue {
+    background-color: #0cbcf5;
+}
+
+.rectangle-txt {
+	position: relative;
+    border: 0.1em outset black;
+	overflow: hidden;
+	padding: 2em;
+	text-align: center;
+	box-sizing: border-box; /* для отмены увеличения блока за счет границ и padding */
+}
+
+.rectangle-txt p {text-align: justify;}
+
+/* 3.1.3 Кнопки /buttons/ */
+
+.button-1,
+.button-2{
+    color: white;
+    cursor: pointer;
+    line-height: 2em;
+    border-radius: 0.5em;
+    border: 0.1em solid white;
+    outline: none;
+    padding: 0 2em;
+    text-transform: uppercase;
+}
+
+.button-1 {background-color: #054a71;}
+.button-2 {background-color: #0172b2;}
+
+.button-1:hover,
+.button-2:hover {
+    background-color: #0cbcf5;
+}
+
+.button-1:active,
+.button-2:active {
+    background-color: #054a71;
+}
+
+.buttons { /*обертка для кнопок */
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+	padding: 0 2em 2em 2em;
+}
+
+#btn-post {float: right;}
+
+/* 3.2 Блоки */
+
+.post-head { /* верхний блок, появляется с разрешения 800px */
+	display: none;
+	font-family: 'Alegreya', serif;
+	padding: 0.5em 1em;
+	text-align: center;
+}
+
+.post {
+	position: relative;
+	text-align: justify;
+	margin: 0 10%;
+	padding: 2em 15%;
+}
+
+
+
+.post h5 {padding: 0 2em;}
+
+.post ol {padding-left: 3em;}
+
+#header-header {
+	font-family: 'Playfair Display', serif;
+}
+
+#header-header-min {
+	display: none;
+}
+
+.post-header {
+	font-family: 'Playfair Display', serif;
+	text-align: center;
+	padding: 2em;
+}
+
+.post-header p {
+	font-size: 20px !important;
+}
+
+#post-dashed {
+	border: 0.1em dashed #054a71;
+	margin: -1em;
+	padding: 1em;
+	font-family: 'Playfair Display', serif;
+}
+
+
+
+.circle {
+	width: 9em;
+    height: 9em;
+	border-radius: 50%;
+}
+
+
+#circle-25 {
+	background: url(../images/law/comment.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-26 {
+	background: url(../images/law/battle.png) center center no-repeat;
+	background-size: 75%;
+	filter: invert(1);
+}
+
+#circle-27 {
+	background: url(../images/law/anxiety.png) center center no-repeat;
+	background-size: 75%;
+	filter: invert(1);
+}
+
+#circle-28 {
+	background: url(../images/law/court.png) center center no-repeat;
+	background-size: 75%;
+}
+
+#circle-29 {
+	background: url(../images/law/sadness-boy-face.png) center center no-repeat;
+	background-size: 75%;
+	filter: invert(1);
+}
+
+#circle-30{
+	background: url(../images/law/compliant.png) center center no-repeat;
+	background-size: 75%;
+	filter: invert(1);
+}
+
+#circle-31 {
+	background: url(../images/law/lawyer.png) center center no-repeat;
+	background-size: 75%;
+	filter: invert(1);
+}
+
+#circle-32 {
+	background: url(../images/law/ruined.png) center center no-repeat;
+	background-size: 75%;
+	filter: invert(1);
+}
+
+#circle-33 {
+	background: url(../images/law/law.png) center center no-repeat;
+	background-size: 75%;
+	filter: invert(1);
+}
+
+#circle-34 {
+	background: url(../images/law/thank-you.png) center center no-repeat;
+	background-size: 75%;
+	filter: invert(1);
+}
+
+/* 3.x.x Блок комментариев */
+	
+.reviews,
+.reviews-comment {
+	display: grid;
+	padding: 2em 15%;
+	grid-template-columns: 10em 1fr;
+	grid-template-rows: 1fr;
+	grid-gap: 0;
+	margin: 0 10%;
+	overflow-wrap: break-word;
+}
+
+.review-circle {
+	display: grid;
+	justify-items: center;
+	align-items: center;
+}
+
+.review-date {
+	text-align: center;
+	overflow-wrap: break-word;
+}
+
+.review-txt {
+	padding: 0 2em;
+	text-align: justify;
+	overflow-wrap: break-word;
+	overflow: auto;
+}
+
+.post-grid,
+.post-grid-r {
+	display: grid;
+	grid-template-columns: 30% 1fr;
+	grid-template-rows: 1fr;
+	grid-gap: 0;
+}
+
+.post-grid-r {
+	grid-template-columns: 1fr 30%;
+}
+
+.post-grid-txt,
+.post-grid-txt-r {
+	display: grid;
+	padding: 2em 15%;
+	text-align: justify;
+	overflow-wrap: break-word;
+	overflow: auto;
+	align-items: center;
+	justify-items: center;
+}
+
+.post-grid-txt-r {
+	order: 1;
+}
+
+.post-grid-circle,
+.post-grid-circle-r,
+.post-grid-img {
+	display: grid;
+	padding: 2em 0;
+	justify-items: center;
+	align-items: center;
+	position: relative;
+}
+
+.post-grid-circle-r {
+	order: 2;
+}
+
+.post-grid-img {
+	padding: 0;
+}
+
+.img-grid {
+	display: grid;
+	padding: 0.5em;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 1em;
+}
+
+.img-grid-inline {
+	display: grid;
+	padding: 0.5em;
+	grid-template-columns: 2fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	grid-gap: 1em;
+	z-index: 1;
+}
+
+.img-grid-post {
+	display: grid;
+	padding: 0.5em;
+}
+
+.img-grid img,
+.img-grid-inline img,
+.img-grid-post img {
+	border-radius: 0.05em;
+	border: 0.2em solid white;
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+	margin: 0 !important;
+	width: 100%;
+	height: 100%;
+}
+
+#img-grid-1 {
+	position: relative;
+	top: 2em;
+	left: 2em;
+}
+
+#img-grid-2 {
+	position: relative;
+	top: -2em;
+}
+
+.post-text {
+	position: relative;
+	background-color: white; 
+	color: #054a71; 
+	padding: 1em; 
+	text-transform: uppercase;
+	font-family: 'Playfair Display', serif;
+	box-sizing: border-box;
+	z-index: 1;
+}
+
+/* 3.2.7 Блок обратной связи */
+
+.input {
+	box-sizing: border-box; /* предотвращает смещение элементов */
+	font-family: 'Roboto', 'Times New Roman', Times, sans-serif;
+	font-size: 100%;
+	width: 100%;
+	line-height: 1em;
+    border-radius: 0.3em;
+    border: 0.05em solid black;
+    outline: none;
+	margin: 0 0 1em 0;
+	padding: 0.5em 1em;
+}
+
+.quote {
+	padding: 1em;
+	outline: 0.1em dotted #054a71;
+	font-family: 'Playfair Display', serif;
+	margin-left: 2em;
+}
+
+.cast {
+	padding: 1em;
+	font-family: 'Piazzolla', serif;
+	font-weight: 100;
+}
+
+/* 3.2.8 Блок соотношения сторон */
+
+.post-ratio {position: relative;}
+
+.item-560by315 {padding-top: 56.25%;} /* (9:16)*100% */
+
+.item-1280by853 {padding-top: 66.69%;}  
+
+.item-640by480 {padding-top: 75%;} /* (3:4)*100% */ 
+
+.item-1by1 {padding-top: 100%;}
+
+.ratio-main-cover { /* данный стиль нужен для создания границ блока */
+	position: relative;
+	margin-right: 50%;
+	margin-left: 15%;
+}
+
+.ratio-main {position: relative;}
+
+.ratio-main:before { /* данный стиль нужен для создания пропорционально изменяющегося блока, меняя padding-top в .item560y315 можно менять соотношение сторон */ 
+	display: block;
+	content: "";
+	width: 100%;
+}
+
+.ratio-main #obj-ratio,
+.ratio-main #obj-ratio-no-fon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	height: 100%;
+}
+
+.ratio-main #obj-ratio {
+	outline: 0.2em solid white;
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+	background-color: #0172b2;
+}
+
+.ratio-text-r,
+.ratio-text-l,
+.ratio-text-30r,
+.ratio-text-30l,
+.ratio-text-65r,
+.ratio-text-65l {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translate(0,-50%);
+	margin-right: 5%;
+	margin-left: 55%;
+	text-align: justify;
+}
+
+.ratio-text-l {
+	margin-left: 5%;
+	margin-right: 55%;
+	text-align: right;
+}
+
+.ratio-text-30r,
+.ratio-text-30l {
+	margin-left: 0;
+	margin-right: 30%;
+	padding: 2em;
+	box-sizing: border-box;
+}
+
+.ratio-text-30l {
+	margin-left: 30%;
+	margin-right: 0;
+}
+
+.ratio-text-65r,
+.ratio-text-65l {
+	margin-left: 0;
+	margin-right: 65%;
+	box-sizing: border-box;
+}
+
+.ratio-text-65l {
+	margin-left: 65%;
+	margin-right: 0;
+}
+
+.ratio-text-r h5,
+.ratio-text-l h5 {display: block;}
+.ratio-text-r h6,
+.ratio-text-l h6 {display: none;}
+
+#ratio-text {padding: 2em 0;}
+
+
+/* 3.4 ЯКОРЯ */
+
+.anchor-down {
+	display: block;
+	position: relative;
+	top: -9em;
+	visibility: hidden;
+}
+
+/* 5. СТРУКТУРНЫЕ ЭЛЕМЕНТЫ ПОДВАЛА */
+
+.footer {
+    clear: both; /* Отмена обтекания */
+    color: white;
+    border-top: 0.1em solid white;
+    text-align: center;
+    background-color: black;
+    padding: 1em 0;
+	position: relative;
+}
+
+.footer .shapka-social { /*дублирование иконок из шапки в футер */
+	position: absolute;
+	left: 2em;
+	top: 0.625em;
+}
+
+.footer .shapka-social a:nth-child(5),
+.footer .shapka-social a:nth-child(6) {
+	display: inline-block;
+}
+
+/* 5.1 Иконки соц. сетей подвала*/
+
+.shapka-social {
+    position: absolute;
+    top: 0.5em;
+    left: 9em;
+    height: 2em;
+    z-index: 102;
+}
+
+.shapka-social a {
+    height: 2em;
+    width: 2em;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 1.25em 1em 0;
+}
+
+.shapka-social a:nth-child(1) {
+    background: url(../images/facebook-logo.png) no-repeat center center;
+    background-size: cover;
+}
+
+.shapka-social a:nth-child(2) {
+    background: url(../images/youtube.png) no-repeat center center;
+    background-size: cover;
+}
+
+.shapka-social a:nth-child(3) {
+    background: url(../images/instagram.png) no-repeat center center;
+    background-size: cover;
+}
+
+.shapka-social a:nth-child(4) {
+    background: url(../images/locate-places.png) no-repeat center center;
+    background-size: cover;
+}
+
+.shapka-social a:nth-child(5) {
+    display: none;
+    background: url(../images/mail.png) no-repeat center center;
+    background-size: cover;
+}
+
+.shapka-social a:nth-child(6) {
+    display: none;
+    background: url(../images/call-answer.png) no-repeat center center;
+    background-size: cover;
+}
+
+
+/* всплывающее окно на темном фоне */
+
+
+.recaptcha-check  {display: none;}
+
+.recaptcha-not-check  {
+	display: block;
+	position: absolute;
+	color: red;
+	transition: 0.3s;
+}
+
+/* 6. ВЫРАВНИВАНИЯ /alignments/ */
+
+.pr {position: relative;}
+
+hr {border-bottom: 0.1em solid #054a71;}
+
+.post-30em {height: 30em;}
+
+.pad-h-2em {padding: 2em 0;}
+
+.btn-dbl-s {border: 0.3em double silver;}
+	
+.btn-dbl-w {border: 0.3em double white;}
+
+.w {color: white;}
+
+.bw {background-color: white;}
+
+.bs {background-color: silver;}
+
+.b6 {background-color: #e4e4e4;}
+
+.bb {background-color: #0cbcf5;}
+
+.border {border: 0.2em solid white;}
+
+.border-b {border: 0.2em solid black;}
+
+.b-thin {
+	border-width: 0.1em;
+}
+
+.border-white {
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+	box-sizing: border-box;
+	outline: 0.2em solid white;
+}
+
+.border-dashed	{border: 0.1em dashed #054a71;}
+
+.t20 {
+	top: 20%;
+	height: 80%;
+}
+
+.b20 {
+	top: 0;
+	height: 80%;
+}
+
+.l20 {
+	left: 20%;
+	width: 80%;
+}
+
+.r20 {
+	left: 0;
+	width: 80%;
+}
+
+.r15 {
+	left: 0;
+	width: 85%;
+}
+
+.r10 {
+	left: 0;
+	width: 90%;
+}
+
+.r30 {
+	left: 0;
+	width: 70%;
+}
+
+.r70 {
+	left: 0;
+	width: 30%;
+}
+
+.l70 {
+	left: 70%;
+	width: 30%;
+}
+
+.l10 {
+	left: 10%;
+	width: 90%;
+}
+
+.l20 {
+	left: 20%;
+	width: 80%;
+}
+
+.rect-w-35-r-15 {
+	width: 35%;
+	left: 50%;
+}
+
+.rect-w-70-l-10 {
+	width: 70%;
+    left: 10%;
+}
+
+.rect-h-70 {
+	height: 70%;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+
+.rect-w-95r-h-70 {
+	height: 70%;
+	width: 95%;
+	top: 50%;
+	left: 15%;
+	transform: translate(0,-50%);	
+}
+
+.rect-w-95l-h-70 {
+	height: 70%;
+	width: 95%;
+	top: 50%;
+	left: 0;
+	transform: translate(0,-50%);	
+}
+
+.margin-r-l-0 {margin: 0;}
+
+.margin-r-5-l-50 {
+	margin-right: 5%;
+	margin-left: 50%;
+}
+
+.margin-r-5-l-70 {
+	margin-right: 5%;
+	margin-left: 70%;
+}
+
+.margin-r-10-l-55 {
+	margin-right: 10%;
+	margin-left: 55%;
+}
+
+.margin-l-5-r-35 {
+	margin-right: 35%;
+	margin-left: 5%;
+}
+
+.margin-l-5-r-50 {
+	margin-right: 50%;
+	margin-left: 5%;
+}
+
+.margin-l-5-r-55 {
+	margin-right: 55%;
+	margin-left: 5%;
+}
+
+.margin-l-5-r-70 {
+	margin-right: 70%;
+	margin-left: 5%;
+}
+
+.margin-l-10-r-30 {
+	margin-right: 30%;
+	margin-left: 10%;
+}
+
+.margin-l-10-r-55 {
+	margin-right: 55%;
+	margin-left: 10%;
+}
+
+.margin-l-15-r-50 {
+	margin-right: 50%;
+	margin-left: 15%;
+}
+
+/* Стриница разработки */
+
+.btn-404 {
+	position: relative;
+	text-align: center;
+}
+
+.img-404 {
+	background: url(../images/IMG_Dragon_20200806_145346_processed.jpg) center center no-repeat #054a71;
+	background-size: cover;
+	height: 60%;
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	right: 60%;
+	left: 5%;
+	border: 0.2em solid white;
+	box-shadow: 0 0 0.2em 0.2em rgba(0,0,0,0.5);
+}
+
+.txt-404 {
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	left: 45%;
+	right: 5%;
+	text-align: center;
+}
+
+.ico-404 {
+	height: 6em;
+	width: 6em;
+	background: url(../images/404-error-1-512.png) center center no-repeat;
+	background-size: contain;
+	margin-left: 50%;
+	transform: translate(-50%,0);
+}
+
+.development {
+	background: url(../images/coding.png) center center no-repeat;
+	background-size: contain;
+}
+
+#footer-404 {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.post-404-err {
+	height: 100vh;
+}
+
+
+/* 7. АДАПТАЦИЯ /под разные размеры экрана/ */
+
+@media screen and (max-width: 1660px) {
+	.post,
+	.reviews,
+	.reviews-comment,
+	.post-grid-txt,
+	.post-grid-txt-r {padding: 2em 10%;}
+}
+
+@media screen and (max-width: 1280px) {
+	.post,
+	.reviews,
+	.reviews-comment {margin: 0 5%;}
+    .rect-w-35-r-15 {width: 40%;} /* отступ справа 10% */
+	.rect-w-70-l-10 {width: 75%} /* отступ справа 15% */
+
+	.margin-l-15-r-50,
+	.margin-l-10-r-55,
+	.margin-l-10-r-30 {margin-left: 5%;}
+	
+	.margin-l-10-r-30 {margin-right: 25%;}
+
+	.ratio-text-r h5,
+	.ratio-text-l h5,
+	.ratio-text-r h6,
+	.ratio-text-l h6 {
+		display: block;
+		padding: 0;
+	}
+	.reviews,
+	.reviews-comment {padding: 2em;}
+}
+
+@media (max-width: 1150px) {
+
+/* структурные элементы тела */
+
+	#btn-header-1 {left: 10%;}
+	#btn-header-2 {right: 10%;}
+	.rect-w-70-l-10 {width: 80%} /* отступ справа 10% */
+	.rect-w-95l-h-70 {width: 100%;} 
+	.rectangle-img {
+		left: 5%;
+		width: 45%;
+	}
+    .rect-w-35-r-15 { /* смещение влево на 5% отступ справа 5% */
+		left: 45%;
+		width: 50%;
+	}
+	.footer .shapka-social {
+		position: static;
+		margin-left: 1.25em; /*смещение иконок в футете на центр */
+	}
+	.footer p {margin-top: 0.5em;}
+}
+
+@media (max-width: 1000px) { /* padding 1.5em */
+	#top-block-404 {display: none;}
+	#top-block-1 {
+		height: 3em;
+	}
+	#top-block-1 h5 {
+		line-height: 1.5em;
+		text-align: left;
+		padding-left: 0.3em;
+	}
+	#header-header {display: none;}
+	#header-header-min {display: block;}
+/* якоря */
+	.anchor-down {top: -3em;}
+/* основное меню сайта */
+	body.lock {
+		overflow: hidden;
+	}
+    #menu {
+		overflow: auto;
+		height: 0;
+		right: 0;
+        width: 100%;
+        padding: 0;
+        z-index: 100;
+		transition: .5s ease-in-out;
+    }
+    #menu li {
+        text-align: center;
+        background-color: black;
+        float: none;
+		z-index: 101;
+    }
+    #menu li:after {content: none;}
+	#menu li:last-child {padding-bottom: 1em;}
+    #menu a {
+        padding: 1.5em 0;
+        height: 1em;
+        margin: 0 1em;
+    }
+    #menu a:before, #menu a:after {bottom: 0;}
+    #menubtn {display: block;}
+    .lang-menu {
+		right: 4em;
+		top: 0;
+	}
+	.subwrapper {
+        display: block;
+        width: auto;
+    }
+	.underheader {height: 3em;}
+	.reviews-comment {
+		grid-template-columns: 1fr;
+		grid-template-rows: 9em 1fr;
+		grid-gap: 1em;
+	}
+    .main-section {width: auto;}
+	#btn-header-1, #btn-header-2 {font-size: 125%}
+	.pad-h-2em {padding: 0;}
+	.rect-w-35-r-15 {left: 50%;}
+	.rectangle-img {
+		left: 0%;
+		width: 50%;
+	}
+	.ratio-text-r,
+	.ratio-text-l,
+	.ratio-text-30r,
+	.ratio-text-30l,
+	.ratio-text-65r,
+	.ratio-text-65l	{
+		color: white;
+		position: relative;
+		transform: none;
+		top: 0;
+		left: 0;
+		margin: 0;
+		background-color: #0172b2;
+		padding: 0;
+	}
+	.ratio-main-cover {margin: 0;}
+	.ratio-main-cover.margin-l-10-r-30 {margin-right: 20%;}
+	#ratio-text {text-align: center;}
+		
+	.post,
+	.post-grid-txt,
+	.post-grid-txt-r,
+	.reviews,
+	.reviews-comment,
+ 	.rectangle-txt {padding: 1.5em;}
+	
+	#post-dashed {margin: 0;}
+	
+	#img-grid-1,
+	#img-grid-2	{
+		top: 0;
+		left: 0;
+	}
+}
+
+@media (max-width: 800px) { 
+
+	.sticky-block {top: 0;}	
+/* якоря */
+	.anchor-down {top: 0;}
+/* шапка */
+    #top-block-1 {
+		position: absolute;
+		width: 100%;
+	}
+	#top-block-1 h5 {
+		display: none;
+	}
+	.post-head {
+		display: block;
+	}
+
+	.top-block-elements,
+	.shapka-social, 
+	#menu,
+    #menubtn,
+    .lang-menu {position: absolute;}
+	.review-txt {padding: 0;}
+
+/* заголовок */
+	#btn-header-1 {left: 5%;}
+	#btn-header-2 {right: 5%;}
+/* посты */
+	#btn-text-l,
+	#btn-text-r {float: none;}
+	.post-30em {height: auto;}
+	.ico-social {
+		position: relative;
+		padding-bottom: 6em;
+		left: auto;
+		right: auto;
+	}
+    .l10, 
+	.l20 {
+		left: 0;
+		width: 100%;
+	}
+
+	.rectangle-img {
+        position: relative;
+		height: 30em;
+        width: 100%;
+    }
+	.rect-w-70-l-10,
+    .rect-w-35-r-15 {
+		left: 0;
+		width: 100%;
+    }
+	#rectangle-gray-contacts {display: none;}
+	.rectangle-iframe {
+	position: relative;
+	right: 0;
+	border: 0.1em outset black;
+	box-shadow: none;
+	width: 100%;
+	height: 20em;
+	}
+/* страница 404 */
+	.img-404 {display: none;}
+	.txt-404 {right: 5%; left: 5%;}
+	.txt-404 h5 {font-size: 175%;}
+	.txt-404 h6 {font-size: 125%;}
+	.post-history {
+		margin: 0;
+		padding: 1em;
+	}	
+}
+
+@media (max-width: 660px) { /* padding 1em */
+	h1 {font-size: 300%;}
+	h2 {font-size: 275%;}
+	h3 {font-size: 250%;}
+	h4 {font-size: 225%;}
+	h5 {font-size: 200%;}
+	h6 {font-size: 150%;}
+	.reviews {
+		grid-template-columns: 1fr;
+		grid-template-rows: 3em 1fr;
+	}
+	#btn-header-1, #btn-header-2 {
+		position: relative;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin-bottom: 1.5em;
+	}
+	.rectangle-img {height: 30em;}
+
+	.circle {
+		position: relative;
+		left: 0;
+		right: 0;
+		transform: none;
+		margin: 0 auto;
+	}
+	
+	.block-right {border-top: 0.1em dashed white;}
+	.circle-cover {padding: 2em 0;}
+
+	.post,
+	.post-grid-txt,
+	.post-grid-txt-r,
+	.reviews,
+	.reviews-comment,
+ 	.rectangle-txt,
+	.post-header {padding: 1em;}
+	
+	.r30, .r70, .l70, .main-50 {
+		left: 0;
+		right: 0;
+		width: 100%;
+	}
+
+	#btn-post {
+		float: none;
+		margin-top: 1em;
+	}
+	#form_message,
+	#review	{text-align: center;}
+	.recaptcha-not-check {position: relative;}
+	.g-recaptcha {display: inline-block;}
+	
+	.post-grid,
+	.post-grid-r {
+		grid-template-columns: 1fr;
+		grid-template-rows: 11em 1fr;
+	}
+	.post-grid-circle,
+	.post-grid-circle-r,
+	.post-grid-img {padding: 0;}
+	.post-grid-circle-r {order: 1;}
+	.post-grid-txt-r {order: 2;}
+	#post-grid-img {grid-template-rows: auto 1fr;}
+	.img-grid-inline {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas: 
+			"img-grid-3 img-grid-3"
+			"img-grid-4 img-grid-5";
+	}
+	#img-grid-3 {grid-area: img-grid-3;}
+	#img-grid-4 {grid-area: img-grid-4;}
+	#img-grid-5 {grid-area: img-grid-5;}
+}
+
+@media (max-width: 480px) {
+	.post,
+	.reviews,
+	.reviews-comment {margin: 0;}
+	.shapka-social { /* выравнивание иконок по центру */
+		left: 0;
+		right: 0;
+		margin-left: 1em;
+	}
+	.shapka-social a:nth-child(5),
+	.shapka-social a:nth-child(6) {
+		display: block;
+		position: absolute;
+		top: 0em;
+		right: 3em;
+	}
+	.shapka-social a:nth-child(6) {
+		right: 0;
+		margin-right: 1em;}
+
+	.footer .shapka-social a:nth-child(5),
+	.footer .shapka-social a:nth-child(6) {display: none;}
+	.grid-wide {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		
+	}
+}
+
+@media (max-width: 340px){
+	.shapka-social a:nth-child(5),
+	.shapka-social a:nth-child(6) {
+		display: block;
+		position: absolute;
+		top: 3em;
+		left: 0;
+	}
+	.shapka-social a:nth-child(6) {left: 3.25em;}
+
+
+
+/* структурные элементы тела */
+	h1 {font-size: 250%;}
+	h2 {font-size: 225%;}
+	h3 {font-size: 200%;}
+	h4 {font-size: 175%;}
+	h5 {font-size: 150%;}
+	h6 {font-size: 125%;}
+	.grid a :nth-child(3) {display:none;}
+	.grid a :nth-child(2) {display:block;}
+	.sticky-events a :nth-child(2) {display:grid;}
+	.rectangle-img {height: 20em;}
+	.ico-social a {height: 3em; width: 3em;}
+	#btn-header-1, 
+	#btn-header-2 {padding: 0 1em;}
+}
+
+/* минимальная ширина экрана 280px */
